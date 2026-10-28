@@ -1,0 +1,1609 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" id="meta-theme" content="#C9A227">
+<title>BASO GROUB — للخدمات</title>
+<meta name="description" content="BASO GROUB — خدمات احترافية لمتابعي وحسابات السوشيال ميديا بتجربة تشبه تطبيقات الهاتف مع وضع ليلي">
+<meta name="color-scheme" content="light dark">
+<!-- الشعار وأيقونات التطبيق -->
+<link rel="icon" href="icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="BASO GROUB">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:title" content="BASO GROUB — للخدمات">
+<meta property="og:description" content="خدمات سوشيال ميديا بلمسة ذهبية — بتصميم هاتف متناسق ووضع ليلي">
+<meta property="og:image" content="icons/logo-1024.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=El+Messiri:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+/* ضبط الوضع (ليلي/نهاري) قبل الرسم حتى لا يحدث وميض */
+try{
+  var t=localStorage.getItem('baso.theme');
+  if(!t)t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);
+}catch(e){}
+</script>
+<style>
+/* ===== 1. الرموز اللونية (فاتح / ليلي) ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  color-scheme:light;
+  --gold:#C9A227; --gold-hi:#E9CB6F; --gold-deep:#8F6B14;
+  --grad:linear-gradient(135deg,#F0D98C 0%,#D4AF37 45%,#A8801D 100%);
+  --soft:#FBF7EC;
+  --bg:#FFFFFF; --surface:#FFFFFF; --elev:#FFFFFF;
+  --ink:#26210F; --on-ink:#FFFFFF; --mut:#7B7360; --line:#EBE1C8;
+  --tint1:#FFFBEF; --tint2:#FDF3D9; --tint-line:#EAD9A8; --tint-text:#8a7643;
+  --field-bg:#FFFFFF; --field-ink:#5d563f; --row-ink:#5c5540;
+  --topbar:rgba(255,255,255,.90); --screen:#FFFFFF;
+  --wa-bg:#F2FAF4; --wa-ink:#128C46; --wa-line:#CBE8D5;
+  --ok:#1FA855; --ok-bg:#EFFAF2; --ok-line:#CBE8D5;
+  --bad:#B03A2E; --bad-bg:#FCEFEC; --bad-line:#F0CFC8;
+  --divider:#D8D2C2;
+  --scroll:#E3D5AE; --scroll-bg:#FBF8F0;
+  --r:18px;
+  --shadow:0 10px 28px rgba(150,120,30,.10);
+  --shadow-lg:0 26px 60px rgba(45,35,5,.20);
+  --ring:rgba(201,162,39,.16);
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --gold:#DDBA4F; --gold-hi:#F5E3AF; --gold-deep:#EED383;
+  --grad:linear-gradient(135deg,#F5E3AF 0%,#D8B54A 48%,#9C7A22 100%);
+  --soft:#14171C;
+  --bg:#0C0E12; --surface:#1A1F27; --elev:#222933;
+  --ink:#F3EFE3; --on-ink:#0C0E12; --mut:#AEB5C0; --line:#3E4956;
+  --tint1:#242219; --tint2:#2B2514; --tint-line:#57491A; --tint-text:#DFC790;
+  --field-bg:#212934; --field-ink:#E4E9F0; --row-ink:#D2D9E2;
+  --topbar:rgba(26,31,39,.94); --screen:#0C0E12;
+  --wa-bg:#132018; --wa-ink:#5FD592; --wa-line:#1F4030;
+  --ok:#3DCB79; --ok-bg:#12251B; --ok-line:#1E4531;
+  --bad:#F2817A; --bad-bg:#2A1512; --bad-line:#54241F;
+  --divider:#3A4100;
+  --scroll:#3E4855; --scroll-bg:#12161C;
+  --shadow:0 10px 28px rgba(0,0,0,.45);
+  --shadow-lg:0 26px 60px rgba(0,0,0,.70);
+  --ring:rgba(216,181,74,.22);
+}
+[data-theme="dark"]{--divider:#343B44}
+html{height:100%}
+body{font-family:"Cairo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+body.no-scroll{overflow:hidden}
+h1,h2,h3,h4,h5,.brand-mark{font-family:"El Messiri","Cairo",serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;color:inherit}
+input,select,textarea{font-family:inherit;font-size:1rem;color:var(--ink);background:var(--field-bg)}
+::selection{background:var(--gold);color:#fff}
+.ic{width:1.15em;height:1.15em;flex:none;vertical-align:-.2em;fill:none}
+.gold-t{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+[data-theme="dark"] .gold-t{color:transparent}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shimmer{to{background-position:-200% 0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pop{from{transform:translateY(18px) scale(.97);opacity:0}}
+@keyframes sheetUp{from{transform:translateY(60px);opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}}
+.theme-anim *{transition:background-color .35s ease,border-color .35s ease,color .35s ease,box-shadow .35s ease}
+
+/* ===== 2. الأساسيات وقشرة التطبيق ===== */
+.app-wrap{min-height:100dvh;background:var(--soft);transition:background .4s}
+
+/* عمود التطبيق: بعرض الهاتف على الجوال، وبقياس ثابت في المنتصف على الشاشات الكبيرة */
+.app-shell{position:relative;z-index:1;width:100%;max-width:560px;margin-inline:auto;min-height:100dvh;
+  padding-bottom:calc(104px + env(safe-area-inset-bottom));display:flex;flex-direction:column;background:var(--bg);
+  isolation:isolate;container-type:inline-size;transition:background .4s}
+/* الرأس (App bar)*/
+@keyframes pulse{50%{opacity:.35}}
+.appbar{flex:none;position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 14px;background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);padding-top:calc(10px + env(safe-area-inset-top));transition:background .4s,border-color .4s}
+.appbar.hidden{display:none}
+.brand{display:flex;align-items:center;gap:9px;min-width:0}
+.brand-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:var(--grad);
+  color:#fff;font-size:21px;font-weight:700;box-shadow:0 6px 16px rgba(180,140,30,.38);flex:none}
+[data-theme="dark"] .brand-mark{color:#1B1608}
+[data-theme="dark"] .svc-card,[data-theme="dark"] .sec-card,[data-theme="dark"] .stat,[data-theme="dark"] .a-card,[data-theme="dark"] .chip,[data-theme="dark"] .quick{box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.06)}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand-text b{font-family:"El Messiri",serif;font-size:17px;letter-spacing:.4px;white-space:nowrap}
+.brand-text small{font-size:10.5px;color:var(--mut)}
+.appbar-act{display:flex;align-items:center;gap:8px;flex:none}
+.icon-btn{width:38px;height:38px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--mut);
+  display:grid;place-items:center;transition:.22s;padding:0}
+.icon-btn:hover{color:var(--gold-deep);border-color:var(--gold)}
+.icon-btn:active{transform:scale(.94)}
+.icon-btn .ic{width:19px;height:19px}
+.icon-btn.danger-btn:hover{color:#fff;background:var(--bad);border-color:var(--bad)}
+.theme-btn{position:relative;overflow:hidden;color:var(--gold-deep);border-color:var(--tint-line);background:var(--tint1)}
+.theme-btn .ic{position:absolute;inset:0;margin:auto;transition:transform .45s cubic-bezier(.3,1.4,.4,1),opacity .3s}
+.theme-btn .i-sun{transform:translateY(0) rotate(0);opacity:1}
+.theme-btn .i-moon{transform:translateY(26px) rotate(-40deg);opacity:0}
+[data-theme="dark"] .theme-btn .i-sun{transform:translateY(-26px) rotate(40deg);opacity:0}
+[data-theme="dark"] .theme-btn .i-moon{transform:translateY(0) rotate(0);opacity:1}
+.theme-btn.off .ic{opacity:.3!important}
+.theme-hint{font-size:11px;font-weight:700;color:var(--mut);white-space:nowrap}
+.wa-btn{color:var(--wa-ink);background:var(--wa-bg);border-color:var(--wa-line)}
+.wa-btn:hover{color:#fff;background:var(--ok);border-color:var(--ok)}
+.brand-mark.sm{width:26px;height:26px;border-radius:8px;font-size:15px;display:inline-grid;vertical-align:middle}
+/* منطقة التمرير */
+.screen{flex:1;position:relative;z-index:1}
+#services-list{scroll-margin-top:74px}
+.screen::-webkit-scrollbar{width:6px}
+.screen::-webkit-scrollbar-thumb{background:var(--scroll);border-radius:99px}
+.screen::-webkit-scrollbar-track{background:transparent}
+
+/* ===== شريط التبويب السفلي ===== */
+.tabbar{position:fixed;inset-inline:0;bottom:0;margin-inline:auto;max-width:560px;z-index:45;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--topbar);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);transition:background .4s,border-color .4s}
+.tabbar.hidden{display:none}
+.tab-item{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 2px 5px;border:none;
+  background:none;border-radius:14px;color:var(--mut);font-size:10.5px;font-weight:700;transition:.22s}
+.tab-item .ic{width:21px;height:21px;transition:transform .22s}
+.tab-item:hover{color:var(--gold-deep)}
+.tab-item:active .ic{transform:scale(.88)}
+.tab-item.active{color:var(--gold-deep);background:var(--tint1)}
+.tab-item.active::after{content:"";position:absolute;top:1px;width:16px;height:3px;border-radius:99px;background:var(--grad)}
+.tab-item .tbadge{position:absolute;top:3px;inset-inline-end:calc(50% - 20px);min-width:16px;height:16px;padding:0 4px;
+  border-radius:99px;background:var(--bad);color:#fff;font-size:9.5px;line-height:16px;font-weight:700}
+[data-theme="dark"] .tab-item .tbadge{color:#1B0E0C}
+
+/* ===== 3. المقدمة / التحميل ===== */
+#intro{position:fixed;inset:0;z-index:78;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  background:radial-gradient(120% 85% at 50% 0%,var(--tint1) 0%,var(--bg) 55%,var(--tint2) 100%);
+  transition:opacity .7s ease,visibility .7s}
+#intro.gone{opacity:0;visibility:hidden;pointer-events:none}
+.intro-inner{position:relative;z-index:2;width:min(340px,86%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.intro-mark{width:84px;height:84px;display:grid;place-items:center;border-radius:26px;background:var(--surface);
+  box-shadow:0 12px 30px rgba(150,120,30,.22);border:1px solid var(--line);position:relative;animation:float 3s ease-in-out infinite}
+.intro-mark::after{content:"";position:absolute;inset:5px;border-radius:20px;padding:2px;background:var(--grad);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.intro-mark span{font-family:"El Messiri",serif;font-size:46px;font-weight:700;background:var(--grad);
+  -webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.intro-mark.sm{width:58px;height:58px;border-radius:18px;animation:none}
+.intro-mark.sm span{font-size:31px}
+.intro-title{font-size:22px;font-weight:700;color:var(--ink);line-height:1.5}
+.intro-title em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro-sub{color:var(--mut);font-size:13px;margin-bottom:12px}
+.load-track{width:100%;height:8px;border-radius:99px;background:var(--tint2);overflow:hidden;border:1px solid var(--line)}
+#intro-fill{height:100%;width:0;border-radius:99px;background:var(--grad);background-size:200% 100%;animation:shimmer 1.6s linear infinite;transition:width .18s linear}
+.load-row{width:100%;display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:6px}
+#intro-pct{font-weight:700;color:var(--gold-deep);direction:ltr}
+#intro-skip{margin-top:16px;background:none;border:1px solid var(--line);color:var(--mut);border-radius:99px;padding:7px 22px;font-size:13px;transition:.25s}
+#intro-skip:hover{border-color:var(--gold);color:var(--gold-deep)}
+.intro-shine{position:absolute;inset:-45%;background:conic-gradient(from 0deg,transparent 0 78%,rgba(201,162,39,.16) 86%,transparent 94%);animation:spin 9s linear infinite;z-index:1}
+
+/* ===== 4. الهيرو والإحصاء ===== */
+.screen-pad{padding-bottom:12px}
+#view-home,#view-service{animation:fadeUp .4s ease}
+/* بطاقة الترحيب */
+.app-hero{position:relative;padding:20px 14px 6px;text-align:center}
+.app-hero::before{content:"";position:absolute;top:-70px;inset-inline:0;margin:auto;width:340px;height:340px;max-width:100%;
+  background:radial-gradient(circle,rgba(212,175,55,.18),transparent 65%);pointer-events:none}
+.hero-kicker{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:var(--gold-deep);
+  background:var(--tint1);border:1px solid var(--tint-line);border-radius:99px;padding:5px 14px;margin-bottom:12px;position:relative}
+.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.8s infinite}
+.hero-title{position:relative;font-size:clamp(24px,8.4cqw,33px);font-weight:700;line-height:1.45}
+.hero-title span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-desc{margin:10px auto 18px;color:var(--mut);font-size:13.5px;line-height:1.8;max-width:340px}
+.hero-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.hero-btns .btn{padding:12px 10px;font-size:14px}
+/* شبكة الأرقام */
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:13px 12px;text-align:center;box-shadow:var(--shadow);transition:background .4s,border-color .4s}
+.stat b{display:block;font-family:"El Messiri",serif;font-size:clamp(20px,6.6cqw,27px);color:var(--gold-deep);line-height:1.25}
+.stat span{font-size:11.5px;color:var(--mut);line-height:1.5}
+.stat-hl{grid-column:1/-1;background:linear-gradient(155deg,var(--tint1),var(--tint2));border-color:var(--tint-line);text-align:center}
+.stat-hl span b{display:inline;font-size:inherit;font-family:inherit;line-height:inherit}
+.visitor-wrap{display:flex;align-items:center;justify-content:center;gap:6px}
+/* أقسام سريعة */
+.quick-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px;padding-inline:14px}
+.quick{display:grid;place-items:center;gap:5px;background:var(--surface);border:1px solid var(--line);
+  border-radius:16px;padding:12px 6px;font-size:11.5px;font-weight:700;color:var(--row-ink);box-shadow:var(--shadow);transition:.25s}
+.quick .ic{width:20px;height:20px;color:var(--gold-deep)}
+.quick:hover{transform:translateY(-3px);border-color:var(--gold);color:var(--gold-deep)}
+/* عناوين الأقسام */
+.sec-head{padding-inline:14px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:24px 0 12px;text-align:start}
+.sec-head h3{font-size:clamp(19px,5.6cqw,23px);position:relative;padding-inline-start:12px}
+.sec-head h3::after{content:"";position:absolute;inset-inline-start:0;bottom:4px;top:4px;width:4px;border-radius:99px;background:var(--grad)}
+.sec-head p{color:var(--mut);font-size:11.5px;line-height:1.5}
+
+/* ===== 5. الأزرار ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:14px;
+  padding:12px 20px;font-size:14.5px;font-weight:700;transition:.22s;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:scale(.975)}
+.btn-gold{background:var(--grad);color:#fff;box-shadow:0 10px 24px rgba(190,150,40,.34)}
+[data-theme="dark"] .btn-gold{color:#1B1608}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(190,150,40,.46)}
+.btn-dark{background:var(--ink);color:var(--bg)}
+.btn-dark:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn-ghost{background:var(--tint1);color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-deep)}
+.btn-line{background:var(--surface);color:var(--mut);border:1px solid var(--line)}
+.btn-line:hover{color:var(--ink);border-color:var(--gold)}
+.btn-wa{background:var(--wa-ink);color:#fff}
+.btn-wa:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn-block{width:100%}
+.btn-xs{padding:6px 12px;font-size:12px;border-radius:10px}
+.btn[disabled]{opacity:.55;pointer-events:none}
+.btn .ic{width:1.15em;height:1.15em}
+
+/* ===== 6. بطاقات الخدمات (قائمة تطبيق) ===== */
+.services-grid{display:grid;gap:10px;padding:0 14px 10px}
+.svc-card{position:relative;display:grid;grid-template-columns:auto 1fr auto;column-gap:12px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:13px 14px;text-align:start;
+  box-shadow:var(--shadow);transition:.25s;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.svc-card::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:4px;background:var(--grad);opacity:0;transition:.25s}
+.svc-card:hover,.svc-card:focus-visible{transform:translateY(-2px);border-color:var(--tint-line);outline:none;box-shadow:var(--shadow-lg)}
+.svc-card:hover::before,.svc-card:focus-visible::before{opacity:1}
+.svc-card:active{transform:scale(.99)}
+.svc-card>*{min-width:0}
+.svc-logo{grid-column:1;grid-row:1/3;width:52px;height:52px;border-radius:16px;background:var(--tint1);border:1px solid var(--tint-line);
+  display:grid;place-items:center;color:var(--gold-deep);flex:none}
+.svc-logo .ic{width:26px;height:26px}
+.svc-logo img{width:100%;height:100%;object-fit:cover;border-radius:15px}
+.svc-card h4{grid-column:2;font-size:15.5px;margin:0;line-height:1.4}
+.svc-card p{grid-column:2;font-size:12px;color:var(--mut);line-height:1.55;min-height:0;margin-top:2px}
+.svc-meta{grid-column:3;grid-row:1/3;flex-direction:column;align-items:center;gap:7px;margin:0;padding:0;border:none;
+  font-size:10.5px;color:var(--mut);font-weight:700}
+.svc-meta .go{width:30px;height:30px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;transition:.25s}
+[data-theme="dark"] .svc-meta .go{color:#1B1608}
+.svc-meta .go .ic{width:15px;height:15px}
+.svc-card:hover .go{transform:scale(1.12)}
+
+/* ===== 7. عرض الخدمة والأقسام ===== */
+#view-service{padding:16px 14px 30px;animation:fadeUp .35s ease}
+.back-btn{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);color:var(--mut);
+  border-radius:99px;padding:9px 16px;font-size:13px;font-weight:700;margin-bottom:14px;transition:.25s;-webkit-tap-highlight-color:transparent}
+.back-btn:hover{color:var(--gold-deep);border-color:var(--gold)}
+.back-btn:active{transform:scale(.97)}
+.back-btn .ic{width:16px;height:16px}
+.back-btn .ic.rot{transform:rotate(180deg)}
+.svc-hero{display:flex;align-items:center;gap:14px;background:linear-gradient(155deg,var(--tint1),var(--tint2));
+  border:1px solid var(--tint-line);border-radius:22px;padding:16px;flex-wrap:wrap}
+.svc-hero .svc-logo{width:62px;height:62px;border-radius:18px;background:var(--surface)}
+.svc-hero h3{font-size:20px;line-height:1.35}
+.svc-hero p{color:var(--tint-text);font-size:12.5px;line-height:1.6}
+.sections-grid{display:grid;gap:12px;margin-top:0}
+.sec-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px;
+  display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);transition:.25s}
+.sec-card:hover{transform:translateY(-3px);border-color:var(--tint-line);box-shadow:var(--shadow-lg)}
+.sec-card>*,.svc-card>*{position:relative}
+.sec-card h5{font-size:16px;display:flex;align-items:center;gap:8px;font-family:"El Messiri",serif}
+.sec-card h5::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--grad);flex:none}
+.sec-card p{font-size:12.5px;color:var(--mut);line-height:1.6}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:11px;background:var(--tint1);border:1px solid var(--line);border-radius:99px;padding:3px 11px;color:var(--tint-text)}
+.sec-card .btn{margin-top:8px;width:100%}
+.empty{text-align:center;color:var(--mut);padding:36px 0;font-size:13.5px}
+
+/* ===== 8. النوافذ (Bottom sheet) وطلب الخدمة ===== */
+.modal-wrap{position:fixed;inset:0;z-index:80;display:none;align-items:flex-end;justify-content:center;
+  background:rgba(18,14,4,.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);padding:0}
+.modal-wrap.open{display:flex}
+.modal{position:relative;width:100%;max-width:min(100%,560px);margin-inline:auto;max-height:92dvh;display:flex;flex-direction:column;
+  background:var(--bg);border-radius:26px 26px 0 0;border:1px solid var(--line);border-bottom:none;
+  box-shadow:0 -18px 50px rgba(0,0,0,.35);animation:sheetUp .3s cubic-bezier(.2,.9,.3,1.05);overflow:hidden}
+.modal::before,.modal::after{display:none;content:none}
+.modal-admin{max-height:96%}
+.admin-app{display:flex;flex-direction:column;min-height:0;flex:1;overflow:hidden}
+.grabber{flex:none;width:48px;height:5px;border-radius:99px;background:var(--mut);opacity:.75;margin:10px auto 3px}
+.modal-head{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface);z-index:3}
+.modal-head h3{font-size:18px}
+.modal-head small{color:var(--mut);font-size:11.5px}
+.modal-head>div{align-items:center}
+.modal-body{flex:1;min-height:0;overflow-y:auto;padding:16px 16px 24px;scrollbar-width:thin}
+.modal-body::-webkit-scrollbar{width:6px}
+.modal-body::-webkit-scrollbar-thumb{background:var(--scroll);border-radius:99px}
+.order-ctx{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.order-ctx b{font-size:11.5px;background:var(--tint1);border:1px solid var(--line);color:var(--gold-deep);border-radius:99px;padding:4px 12px}
+.field{display:block;margin-bottom:12px}
+.field>span{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--field-ink);margin-bottom:6px}
+.field>span .ic{width:15px;height:15px;color:var(--gold-deep)}
+.field input,.field select,.field textarea{width:100%;background:var(--field-bg);border:1.5px solid var(--line);border-radius:12px;
+  padding:12px 13px;outline:none;transition:.2s;resize:vertical;font-size:15.5px;line-height:1.6}
+.field textarea{min-height:78px}
+.field select{-webkit-appearance:menulist-button;appearance:auto;cursor:pointer;font-size:15.5px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px var(--ring)}
+.field input::placeholder,.field textarea::placeholder{color:var(--mut);opacity:.85}
+.field.bad input,.field.bad select{border-color:var(--bad);box-shadow:0 0 0 4px rgba(176,58,46,.12)}
+.done-body{text-align:center;padding-bottom:26px}
+.done-mark{width:70px;height:70px;margin:6px auto 12px;border-radius:50%;background:var(--ok-bg);color:var(--ok);display:grid;place-items:center}
+.done-mark .ic{width:36px;height:36px}
+.done-body h4{font-size:20px;margin-bottom:6px}
+.done-body p{color:var(--mut);font-size:13px;margin-bottom:16px;line-height:1.7}
+.done-body .btn{margin-bottom:9px}
+
+/* ===== 9. لوحة التحكم ===== */
+.admin-head>div{display:flex;flex-direction:column;gap:2px;align-items:flex-start}
+.conn-badge{font-size:10.5px;font-weight:700;color:var(--mut)}
+.conn-badge.live{color:var(--ok)}
+.tabs{display:flex;gap:4px;padding:8px 12px;border-bottom:1px solid var(--line);flex-wrap:nowrap;overflow-x:auto;
+  background:var(--surface);z-index:2;flex:none;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.atab{background:none;border:none;padding:9px 12px;font-size:13px;font-weight:700;color:var(--mut);
+  border-radius:11px;white-space:nowrap;transition:.2s;-webkit-tap-highlight-color:transparent}
+.atab:hover{color:var(--gold-deep)}
+.atab.active{color:var(--gold-deep);background:var(--tint1);box-shadow:inset 0 0 0 1.5px var(--gold)}
+.atab .badge{background:var(--bad);color:#fff;font-size:10px;border-radius:99px;padding:1px 7px;vertical-align:2px}
+[data-theme="dark"] .atab .badge{color:#1B0E0C}
+.tab-pane{display:none}
+.tab-pane.active{display:block;animation:fadeUp .3s ease}
+.a-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px;margin-bottom:10px}
+.a-row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.a-title{font-size:15px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.a-title img{width:36px;height:36px;border-radius:10px;object-fit:cover;border:1px solid var(--line)}
+.a-title .mono{width:36px;height:36px;border-radius:10px;background:var(--grad);color:#fff;display:inline-grid;place-items:center;font-family:"El Messiri",serif;font-size:18px}
+.a-sub{font-size:11.5px;color:var(--mut);line-height:1.7}
+.a-secs{margin:11px 0;border:1px dashed var(--line);border-radius:12px;padding:9px;background:var(--soft)}
+.a-secrow{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:11px;
+  padding:7px 8px;margin-bottom:6px;flex-wrap:wrap}
+.a-secrow:last-child{margin-bottom:0}
+.a-secrow b{font-size:13px}
+.a-in{border:1.5px solid var(--line);border-radius:10px;padding:10px 11px;outline:none;flex:1;min-width:0;background:var(--field-bg);font-size:15px}
+.a-in:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--ring)}
+select.a-in{-webkit-appearance:menulist-button;appearance:auto;cursor:pointer}
+.a-mini{font-size:11.5px;color:var(--mut);width:100%;flex:none;font-weight:700}
+.danger{background:none;border:1px solid var(--bad-line);color:var(--bad);border-radius:9px;padding:6px 11px;font-size:12px;font-weight:700;transition:.2s}
+.danger:hover{background:var(--bad);color:#fff}
+.ok-btn{background:none;border:1px solid var(--ok-line);color:var(--ok);border-radius:9px;padding:6px 11px;font-size:12px;font-weight:700;transition:.2s}
+.ok-btn:hover{background:var(--ok);color:#fff}
+.order-card{border-inline-start:4px solid var(--gold)}
+.order-card.done{border-inline-start-color:var(--divider);opacity:.78}
+.order-head{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+.order-head b{font-size:15px}
+.order-time{font-size:10.5px;color:var(--mut)}
+.order-info{font-size:12.5px;color:var(--row-ink);margin:6px 0 3px;line-height:1.7}
+.order-info i{font-style:normal;color:var(--gold-deep);font-weight:700}
+.st-new,.st-done{font-size:10.5px;font-weight:700;border-radius:99px;padding:2px 10px}
+.st-new{background:var(--bad-bg);color:var(--bad)}
+.st-done{background:var(--ok-bg);color:var(--ok)}
+.filter-chip{font-size:11.5px;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:5px 13px;font-weight:700;color:var(--mut)}
+.filter-chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.big-stat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.big-stat .stat{text-align:center;padding:16px 10px}
+.gate-box{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:28px 6px 24px;width:100%;margin:auto}
+.gate-box h4{font-size:19px}
+.gate-box input{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px;outline:none;background:var(--field-bg);text-align:center}
+.gate-box input:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--ring)}
+.gate-box p{color:var(--mut);font-size:12.5px;line-height:1.7}
+.admin-user-box{display:flex;align-items:center;gap:8px}
+.admin-user-box #admin-user{color:var(--gold-deep);font-weight:700;font-size:11.5px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gate-err{color:var(--bad);font-size:12.5px;min-height:18px}
+.gate-alt{background:none;border:none;color:var(--gold-deep);font-size:11.5px;font-weight:700;text-decoration:underline;cursor:pointer;margin-top:2px}
+.logo-prev{width:52px;height:52px;border-radius:12px;object-fit:cover;border:1px solid var(--line);background:var(--soft);display:none}
+.file-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:6px;border:1px dashed var(--gold);
+  color:var(--gold-deep);background:var(--tint1);border-radius:10px;padding:8px 13px;font-size:12px;font-weight:700}
+.file-btn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+
+/* ===== 10. شريط الأسفل + الفوتر + التوست + الوسائط ===== */
+ .app-foot{border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg),var(--soft));
+  padding:22px 14px calc(30px + env(safe-area-inset-bottom));text-align:center;margin-top:22px;transition:background .4s,border-color .4s}
+.foot-brand{font-family:"El Messiri",serif;font-size:18px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px}
+.foot-brand small{color:var(--mut);font-size:11.5px;font-family:"Cairo"}
+.foot-contact h4{font-size:13.5px;color:var(--gold-deep);margin-bottom:10px}
+.contact-chips{display:grid;gap:9px}
+.chip{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--surface);border:1px solid var(--line);
+  border-radius:14px;padding:11px 18px;font-size:13.5px;color:var(--row-ink);box-shadow:var(--shadow);transition:.25s}
+.chip b{color:var(--ink);direction:ltr;font-weight:700}
+.chip:hover{transform:translateY(-2px);border-color:var(--gold);color:var(--gold-deep)}
+.chip .ic{width:18px;height:18px;vertical-align:0}
+.copy{margin-top:14px;font-size:11px;color:var(--mut);padding-bottom:6px}
+/* التوست داخل الشاشة */
+#toast{position:fixed;left:50%;bottom:calc(104px + env(safe-area-inset-bottom));transform:translate(-50%,14px);z-index:96;
+  background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:99px;font-size:12.5px;font-weight:700;
+  box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.3s;max-width:86%;text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#toast{border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+[data-theme="dark"] #toast{box-shadow:0 12px 30px rgba(0,0,0,.6)}
+
+@container (max-width:392px){.appbar .theme-hint{display:none}}
+/* شعار الموقع المرفوع + صور الأقسام + تنبيهات القواعد */
+.brand-mark.has-img,.intro-mark.has-img{background:transparent;border-color:transparent;padding:0;box-shadow:none}
+.brand-mark>img,.intro-mark>img{width:100%;height:100%;object-fit:contain;border-radius:inherit;display:block}
+.intro-mark.has-img{animation:none;box-shadow:none}
+.intro-mark.has-img::after{display:none}
+.sec-top{display:flex;align-items:center;gap:10px}
+.sec-logo{width:42px;height:42px;border-radius:13px;overflow:hidden;flex:none;display:grid;place-items:center;background:var(--tint1);border:1px solid var(--tint-line);box-shadow:var(--shadow)}
+.sec-logo img{width:100%;height:100%;object-fit:cover;display:block}
+.sec-logo.from-svc{width:38px;height:38px;border-radius:11px;opacity:.95}
+.sec-card .sec-top h5{margin:0}
+.sec-logo-btn{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1.5px dashed var(--gold);
+  background:var(--tint1);color:var(--gold-deep);font-size:16px;cursor:pointer;flex:none;overflow:hidden}
+.sec-logo-btn.new{width:auto;padding:0 11px;font-size:11.5px;font-weight:700;display:inline-flex;align-items:center}
+.sec-logo-btn img{width:100%;height:100%;object-fit:cover}
+.sec-logo-btn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.danger.xs{padding:6px 9px;font-size:12px;line-height:1}
+.rules-warn{display:grid;gap:4px;background:var(--bad-bg);border:1px solid var(--bad-line);border-radius:12px;padding:11px 13px;margin-bottom:11px}
+.rules-warn b{color:var(--bad);font-size:13.5px}
+.rules-warn span{color:var(--row-ink);font-size:12px;line-height:1.75}
+.rules-box{background:var(--field-bg);border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:10px;
+  font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;line-height:1.6;max-height:190px;overflow:auto;white-space:pre;color:var(--row-ink)}
+.warn-note{background:var(--bad-bg);border:1px solid var(--bad-line);color:var(--bad);border-radius:12px;padding:10px 12px;font-size:12px;line-height:1.7;margin-bottom:14px;text-align:start}
+.brandlogo-prev{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:var(--grad);color:#fff;
+  font-family:"El Messiri",serif;font-size:26px;flex:none;overflow:hidden;border:1px solid var(--tint-line)}
+[data-theme="dark"] .brandlogo-prev{color:#1B1608}
+.brandlogo-prev.has-img{background:var(--field-bg);border-style:dashed}
+.brandlogo-prev img{width:100%;height:100%;object-fit:contain}
+/* أدوات عامة */
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.screen::-webkit-scrollbar{width:5px}
+.screen::-webkit-scrollbar-track{background:transparent}
+html{scroll-behavior:smooth}
+/* تقليل الحركة */
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+/* مقاسات متناسقة على الجوال أولًا، ثم توسّع متدرّج للشاشات الأكبر */
+@media (min-width:600px){
+  .app-shell{max-width:640px;padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+  .tabbar{max-width:640px}
+  .appbar{padding-inline:20px}
+  .app-hero{padding:26px 20px 8px}
+  .hero-desc{max-width:440px;font-size:14px}
+  .hero-btns{max-width:440px;margin-inline:auto}
+  .quick-row{padding-inline:20px;max-width:440px;margin-inline:auto}
+  .sec-head{padding-inline:20px;margin:28px 0 14px}
+  .services-grid{padding-inline:20px;grid-template-columns:1fr 1fr;gap:12px}
+  #view-service{padding:22px 20px 34px}
+  .sections-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .app-foot{padding-inline:20px}
+  .contact-chips{grid-template-columns:1fr 1fr}
+  .modal{max-width:min(100%,640px)}
+  #toast{bottom:calc(100px + env(safe-area-inset-bottom))}
+}
+@media (min-width:601px){
+  .app-shell{box-shadow:0 0 0 1px var(--line),0 24px 60px rgba(0,0,0,.07)}
+  [data-theme="dark"] .app-shell{box-shadow:0 0 0 1px var(--line),0 24px 60px rgba(0,0,0,.5)}
+}
+@media (min-width:980px){
+  .app-shell{max-width:880px;padding-bottom:calc(118px + env(safe-area-inset-bottom))}
+  .tabbar{max-width:880px;padding-block:10px 12px}
+  .hero-stats{grid-template-columns:1.4fr 1fr 1fr}
+  .stat-hl{grid-column:auto}
+  .stat-hl span{text-align:start}
+  .hero-desc{max-width:520px}
+  .appbar{padding-inline:28px}
+  .app-hero{padding-top:34px}
+  .hero-title{font-size:clamp(30px,7cqw,42px)}
+  .quick-row,.sec-head,.services-grid,#view-service,.app-foot{padding-inline:28px}
+  .services-grid{grid-template-columns:repeat(3,1fr)}
+  .sections-grid{grid-template-columns:1fr 1fr}
+  .modal{max-width:min(100%,880px);border-radius:26px;margin-bottom:22px}
+  .modal-wrap{align-items:center;padding:22px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- مكتبة الأيقونات -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-tg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></symbol>
+<symbol id="i-tk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5.2A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.6 8.4c.3-.1.6 0 .8.3l.7 1c.2.3.1.6-.1.8l-.4.4c.5 1 1.3 1.8 2.3 2.3l.4-.4c.2-.2.5-.3.8-.1l1 .7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.1-2.9-.4-5.2-2.7-5.6-5.6-.1-.8.4-1.5 1.1-1.7Z"/></symbol>
+<symbol id="i-gl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></symbol>
+<symbol id="i-bl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><polyline points="22 4 12 14 9 11"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 17 5 12 12 7"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.2 12 3l9 7.2V20a1.6 1.6 0 0 1-1.6 1.6H4.6A1.6 1.6 0 0 1 3 20Z"/><path d="M9.2 21.6v-7.4h5.6v7.4"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.4" height="7.4" rx="2.2"/><rect x="13.6" y="3" width="7.4" height="7.4" rx="2.2"/><rect x="3" y="13.6" width="7.4" height="7.4" rx="2.2"/><rect x="13.6" y="13.6" width="7.4" height="7.4" rx="2.2"/></symbol>
+<symbol id="i-order" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M16 6h2.4A1.6 1.6 0 0 1 20 7.6v12.8A1.6 1.6 0 0 1 18.4 22H5.6A1.6 1.6 0 0 1 4 20.4V7.6A1.6 1.6 0 0 1 5.6 6H8"/><path d="M8.6 13.2h6.8M12 9.8v6.8"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.6" width="16" height="11.4" rx="2.6"/><path d="M8 10.6V7.4a4 4 0 0 1 8 0v3.2"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 12H2M22 12h-2.2M6.5 6.5 5 5M19 19l-1.5-1.5M17.5 6.5 19 5M5 19l1.5-1.5"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13.2A9 9 0 1 1 10.8 3a7.2 7.2 0 0 0 10.2 10.2Z"/></symbol>
+<symbol id="i-batt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2.6"/><path d="M23 11v2"/><rect x="4.6" y="9.6" width="11" height="4.8" rx="1.2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M5.6 12.6a10 10 0 0 1 12.8 0"/><path d="M9 16.2a5 5 0 0 1 6 0"/><circle cx="12" cy="19.6" r="1.1" fill="currentColor" stroke="none"/></symbol>
+</defs>
+</svg>
+<div class="app-wrap">
+  <div class="app-shell">
+    <!-- شاشة التحميل -->
+    <div id="intro">
+      <div class="intro-inner">
+        <div class="intro-mark" data-brand><span>B</span></div>
+        <h1 class="intro-title">مرحباً بكم في <em>BASO GROUB</em></h1>
+        <p class="intro-sub">للخدمات — نجهّز لك كل ما تحتاجه بأناقة وسرعة</p>
+        <div class="load-track"><div id="intro-fill"></div></div>
+        <div class="load-row"><span id="intro-pct">0%</span><span>جارٍ التحميل…</span></div>
+        <button id="intro-skip" type="button">تخطي &lsaquo;</button>
+      </div>
+      <div class="intro-shine"></div>
+    </div>
+
+
+    <!-- رأس التطبيق -->
+    <header class="appbar">
+      <a class="brand" href="#view-home" id="brand-home" aria-label="BASO GROUB — الصفحة الرئيسية">
+        <span class="brand-mark" data-brand>B</span>
+        <span class="brand-text"><b>BASO GROUB</b><small>للخدمات الرقمية</small></span>
+      </a>
+      <div class="appbar-act">
+        <span class="theme-hint" id="theme-hint">ليلي</span>
+        <button class="icon-btn theme-btn" id="theme-toggle" type="button" aria-label="تبديل الوضع الليلي" aria-pressed="false" title="الوضع الليلي / النهاري">
+          <svg class="ic i-sun"><use href="#i-sun"/></svg>
+          <svg class="ic i-moon"><use href="#i-moon"/></svg>
+        </button>
+        <a class="icon-btn wa-btn" id="top-wa" href="#" target="_blank" rel="noopener" aria-label="تواصل على واتساب">
+          <svg class="ic"><use href="#i-wa"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- شاشة التطبيق القابلة للتمرير -->
+    <main class="screen" id="screen">
+
+    <!-- شاشة الترحيب تغطي كامل الهاتف -->
+      <!-- الرئيسية -->
+      <section id="view-home">
+        <div class="app-hero">
+          <p class="hero-kicker"><span class="dot" aria-hidden="true"></span> منصة خدمات رقمية موثوقة</p>
+          <h2 class="hero-title">خدمات سوشيال ميديا <span>بلمسة ذهبية</span></h2>
+          <p class="hero-desc">متابعون، حماية حسابات، تكبير قنوات وأكثر — اختر الخدمة وقسماً واطلب الآن، وسيصل طلبك إلينا مباشرة.</p>
+          <div class="hero-btns">
+            <a class="btn btn-gold" href="#services-list"><svg class="ic"><use href="#i-grid"/></svg> تصفح خدماتنا</a>
+            <a class="btn btn-dark" id="hero-wa" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> تواصل واتساب</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat stat-hl">
+              <b id="hero-members">8,000</b>
+              <span>عضو مشترك إلى الآن في صفحة <b class="gold-t">BASO GROUB</b></span>
+            </div>
+            <div class="stat"><b id="hero-services-count">0</b><span>خدمة رئيسية</span></div>
+            <div class="stat"><b class="visitor-wrap"><svg class="ic"><use href="#i-eye"/></svg><span id="hero-visits">—</span></b><span>زيارة للصفحة</span></div>
+          </div>
+        </div>
+
+        <div class="quick-row" aria-label="اختصارات الخدمات">
+          <button class="quick" type="button" data-quick="ig"><svg class="ic"><use href="#i-ig"/></svg><span>انستقرام</span></button>
+          <button class="quick" type="button" data-quick="tg"><svg class="ic"><use href="#i-tg"/></svg><span>تيليجرام</span></button>
+          <button class="quick" type="button" data-quick="tk"><svg class="ic"><use href="#i-tk"/></svg><span>تيك توك</span></button>
+        </div>
+
+        <div class="sec-head" id="services-list">
+          <h3>خدماتنا</h3>
+          <p>اختر خدمة لعرض أقسامها</p>
+        </div>
+        <div class="services-grid" id="services-grid"><!-- تُبنى بالجافاسكربت --></div>
+
+        <footer class="app-foot">
+          <div class="foot-brand"><span class="brand-mark sm" data-brand>B</span> <b>BASO GROUB</b> <small>للخدمات</small></div>
+          <div class="contact-chips">
+            <a class="chip" id="foot-wa" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> واتساب <b id="foot-wa-num">07726446644</b></a>
+            <a class="chip" id="foot-ig" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg> انستقرام <b id="foot-ig-name">@muhaymin_baso</b></a>
+          </div>
+          <p class="copy">© <span id="year"></span> BASO GROUB — جميع الحقوق محفوظة</p>
+        </footer>
+      </section>
+
+      <!-- تفاصيل خدمة -->
+      <section id="view-service" hidden>
+        <button class="back-btn" id="btn-back" type="button"><svg class="ic rot"><use href="#i-back"/></svg> رجوع للخدمات</button>
+        <div id="service-body"><!-- تُبنى بالجافاسكربت --></div>
+      </section>
+
+    </main>
+
+    <!-- شريط التبويب السفلي -->
+    <nav class="tabbar" id="tabbar" aria-label="التنقل الرئيسي">
+      <button class="tab-item active" type="button" data-tab="home">
+        <svg class="ic"><use href="#i-home"/></svg><span>الرئيسية</span>
+      </button>
+      <button class="tab-item" type="button" data-tab="services">
+        <svg class="ic"><use href="#i-grid"/></svg><span>الخدمات</span>
+      </button>
+      <button class="tab-item" type="button" data-tab="order">
+        <svg class="ic"><use href="#i-order"/></svg><span>اطلب الآن</span>
+      </button>
+      <button class="tab-item" type="button" data-tab="admin">
+        <svg class="ic"><use href="#i-lock"/></svg><span>التحكم</span>
+        <span class="tbadge" id="tab-badge" hidden>0</span>
+      </button>
+    </nav>
+
+    <!-- نافذة الطلب -->
+    <div class="modal-wrap" id="modal-order" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="om-title">
+        <span class="grabber" aria-hidden="true"></span>
+        <div class="modal-head">
+          <h3 id="om-title">طلب جديد</h3>
+          <button class="icon-btn danger-btn" id="om-close" type="button" aria-label="إغلاق"><svg class="ic"><use href="#i-x"/></svg></button>
+        </div>
+        <div class="modal-body" id="om-form">
+          <div class="order-ctx" id="om-ctx"></div>
+          <label class="field"><span><svg class="ic"><use href="#i-user"/></svg> الاسم الكامل *</span>
+            <input id="om-name" type="text" placeholder="اكتب اسمك الثلاثي" autocomplete="name"></label>
+          <label class="field"><span><svg class="ic"><use href="#i-phone"/></svg> رقم الهاتف *</span>
+            <input id="om-phone" type="tel" inputmode="tel" placeholder="07xxxxxxxxx" dir="ltr" autocomplete="tel"></label>
+          <label class="field"><span><svg class="ic"><use href="#i-pin"/></svg> العنوان *</span>
+            <input id="om-address" type="text" placeholder="المحافظة - المدينة - أقرب نقطة دالة"></label>
+          <label class="field"><span><svg class="ic"><use href="#i-alert"/></svg> تحديد المشكلة *</span>
+            <select id="om-problem"></select></label>
+          <label class="field"><span><svg class="ic"><use href="#i-send"/></svg> ملاحظات (اختياري)</span>
+            <textarea id="om-notes" rows="3" placeholder="تفاصيل إضافية تساعدنا على تنفيذ طلبك بدقة"></textarea></label>
+          <button class="btn btn-gold btn-block" id="om-submit" type="button">إرسال الطلب</button>
+        </div>
+        <div class="modal-body done-body" id="om-done" hidden>
+          <div class="done-mark"><svg class="ic"><use href="#i-check"/></svg></div>
+          <h4>تم استلام طلبك بنجاح</h4>
+          <p>سُجّل طلبك في لوحة التحكم لدينا. لإيصاله فوراً على الواتساب اضغط الزر وأرسل الرسالة الجاهزة:</p>
+          <p class="warn-note" id="om-note" hidden>تنبيه للزبون: الطلب محفوظ على جهازك حالياً ولم يصل للمالك — أرسله على الواتساب بالزر أعلاه لضمان تنفيذه.</p>
+          <a class="btn btn-wa btn-block" id="om-wa" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> إرسال الطلب على الواتساب</a>
+          <button class="btn btn-ghost btn-block" id="om-copy" type="button">نسخ نص الطلب</button>
+          <button class="btn btn-line btn-block" id="om-done-close" type="button">إغلاق</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- لوحة التحكم #baso -->
+    <div class="modal-wrap" id="modal-admin" aria-hidden="true">
+      <div class="modal modal-admin" role="dialog" aria-modal="true">
+        <span class="grabber" aria-hidden="true"></span>
+        <div class="modal-head admin-head">
+          <div><h3>لوحة تحكم BASO GROUB</h3><span id="admin-mode-badge" class="conn-badge"></span></div>
+          <div class="admin-user-box">
+            <span id="admin-user" class="a-sub" dir="ltr"></span>
+            <button class="danger" id="am-logout" type="button" hidden>خروج</button>
+            <button class="icon-btn danger-btn" id="am-close" type="button" aria-label="إغلاق"><svg class="ic"><use href="#i-x"/></svg></button>
+          </div>
+        </div>
+
+        <div class="modal-body" id="admin-gate" hidden>
+          <div class="gate-box" id="gate-fb" hidden>
+            <div class="intro-mark sm" data-brand><span>B</span></div>
+            <h4>دخول مدير الموقع</h4>
+            <p>سجّل الدخول بالبريد الإلكتروني وكلمة المرور من حساب Firebase</p>
+            <input id="fb-email" type="email" placeholder="البريد الإلكتروني" dir="ltr" autocomplete="username">
+            <input id="fb-pass" type="password" placeholder="كلمة المرور" dir="ltr" autocomplete="current-password">
+            <button class="btn btn-gold btn-block" id="fb-login" type="button">دخول</button>
+            <span class="gate-err" id="gate-err"></span>
+            <button class="gate-alt" id="gate-fallback" type="button" hidden>تعذّر الدخول بالبريد؟ ادخل برمز الوضع المحلي</button>
+          </div>
+          <div class="gate-box" id="gate-pin" hidden>
+            <div class="intro-mark sm" data-brand><span>B</span></div>
+            <h4>هذه المنطقة محمية (وضع محلي)</h4>
+            <p>أدخل رمز الدخول للمتابعة</p>
+            <input id="admin-pin" type="password" inputmode="numeric" placeholder="رمز الدخول" dir="ltr" autocomplete="off">
+            <button class="btn btn-gold btn-block" id="admin-unlock" type="button">فتح لوحة التحكم</button>
+            <span class="gate-err" id="gate-err-local"></span>
+          </div>
+        </div>
+
+        <div id="admin-app" class="admin-app">
+          <nav class="tabs">
+            <button class="atab active" data-tab="orders" type="button">الطلبات <span class="badge" id="orders-new-count">0</span></button>
+            <button class="atab" data-tab="services" type="button">الخدمات</button>
+            <button class="atab" data-tab="stats" type="button">الإحصاء</button>
+            <button class="atab" data-tab="settings" type="button">الإعدادات</button>
+          </nav>
+          <div class="modal-body">
+            <div class="tab-pane active" id="tab-orders"><div id="orders-tools"></div><div id="orders-list"></div></div>
+            <div class="tab-pane" id="tab-services"><div id="admin-services-list"></div></div>
+            <div class="tab-pane" id="tab-stats"><div id="stats-body"></div></div>
+            <div class="tab-pane" id="tab-settings"><div id="settings-body"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" role="status"></div>
+
+  </div><!-- /.app-shell -->
+</div><!-- /.app-wrap -->
+
+<script type="module">
+/* ================= الأدوات ================= */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const fmtN=n=>Number(n||0).toLocaleString('en-US');
+const toast=(m)=>{const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._x);t._x=setTimeout(()=>t.classList.remove('show'),2200)};
+function ico(k){const map={ig:'i-ig',tg:'i-tg',tk:'i-tk',wa:'i-wa',gl:'i-gl',bl:'i-bl'};return `<svg class="ic"><use href="#${map[k]||'i-bl'}"/></svg>`}
+/* ================= الوضع الليلي / النهاري ================= */
+const THEME_KEY='baso.theme';
+function applyTheme(t,announce){
+  const root=document.documentElement;
+  root.classList.add('theme-anim');clearTimeout(applyTheme._t);
+  applyTheme._t=setTimeout(()=>root.classList.remove('theme-anim'),520);
+  root.setAttribute('data-theme',t);
+  try{localStorage.setItem(THEME_KEY,t)}catch(e){}
+  const dark=t==='dark';
+  const meta=$('#meta-theme');if(meta)meta.setAttribute('content',dark?'#0F1216':'#C9A227');
+  const btn=$('#theme-toggle');
+  if(btn){btn.setAttribute('aria-pressed',dark?'true':'false');btn.setAttribute('aria-label',dark?'تفعيل الوضع النهاري':'تفعيل الوضع الليلي');btn.title=dark?'تحويل للوضع النهاري':'تحويل للوضع الليلي'}
+  const hint=$('#theme-hint');if(hint)hint.textContent=dark?'نهاري':'ليلي';
+  if(announce)toast(dark?'تم تفعيل الوضع الليلي 🌙':'تم تفعيل الوضع النهاري ☀️');
+}
+function initTheme(){
+  let saved=null;try{saved=localStorage.getItem(THEME_KEY)}catch(e){}
+  applyTheme(saved||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),false);
+  $('#theme-toggle').addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark',true));
+  try{
+    const mq=matchMedia('(prefers-color-scheme: dark)');
+    (mq.addEventListener?mq.addEventListener.bind(mq,'change'):mq.addListener.bind(mq))(e=>{
+      let man=null;try{man=localStorage.getItem(THEME_KEY)}catch(_){}
+      if(!man)applyTheme(e.matches?'dark':'light',false);
+    });
+  }catch(e){}
+}
+async function guard(p){try{await p;return true}catch(e){toast('⛔ تعذر الحفظ على السيرفر — تأكد من تسجيل دخول المدير ونشر قواعد Rules');console.warn(e);return false}}
+
+/* ================= إعدادات Firebase =================
+   ضع بيانات مشروعك (Firebase Console > Project settings > Your apps) داخل الأقواس
+   أو أسهل: افتح لوحة التحكم #baso > الإعدادات > الصق الإعدادات واحفظ.
+===================================================== */
+const FIREBASE_CONFIG={
+  apiKey:"AIzaSyBsGmlF6eV4FRvFnDcnVmRCrGAEGrZflTE",
+  authDomain:"baso-af795.firebaseapp.com",
+  projectId:"baso-af795",
+  storageBucket:"baso-af795.firebasestorage.app",
+  messagingSenderId:"316732347670",
+  appId:"1:316732347670:web:d7d6a23ad0991f7936ec37",
+  databaseURL:"https://baso-af795-default-rtdb.firebaseio.com"
+};
+const CONFIG_LS='baso_fb_config';
+function activeConfig(){
+  const base={...FIREBASE_CONFIG};
+  try{const s=JSON.parse(localStorage.getItem(CONFIG_LS)||'null');if(s&&s.apiKey)return Object.assign(base,s)}catch(e){}
+  return base;
+}
+
+const RULES_JSON=`{
+  "rules": {
+    "baso": {
+      "services": { ".read": true, ".write": "auth != null" },
+      "settings": { ".read": true, ".write": "auth != null" },
+      "stats": { "visitors": {
+        ".read": true,
+        ".write": "auth != null || (!data.exists() && newData.val() === 1) || (data.exists() && newData.isNumber() && newData.val() > data.val() && newData.val() <= data.val() + 1)"
+      } },
+      "orders": {
+        ".read": "auth != null",
+        ".indexOn": ["ts", "status"],
+        "$oid": {
+          ".write": "auth != null || (!data.exists() && newData.child('status').val() === 'new')",
+          ".validate": "!newData.exists() || newData.hasChildren(['id','name','phone','address','problem','service','section','status','ts'])"
+        }
+      }
+    }
+  }
+}`;
+
+/* ================= البيانات الافتراضية ================= */
+const DEFAULT_SETTINGS={whatsapp:'07726446644',instagram:'@muhaymin_baso',members:8000,pin:'',brandLogo:''};
+const DEFAULT_SERVICES=[
+ {id:'s-ig',name:'خدمات انستقرام',desc:'تكبير حسابك وحمايته بسرية تامة وأداء سريع',logo:null,icon:'ig',sections:[
+   {id:'c-ig-1',name:'زيادة عدد المتابعين',desc:'متابعون حقيقيون بجودة عالية وبضمان',options:['متابعون جدد','نقص مفاجئ بالمتابعين','طلب كمية كبيرة','توصيل بطيء أو متوقف']},
+   {id:'c-ig-2',name:'تأمين الحسابات واسترجاعها',desc:'تأمين كامل أو استرجاع حساب مفقود',options:['حساب مخترق','استرجاع حساب','تأمين مستقبلي','مشكلة تسجيل دخول']},
+   {id:'c-ig-3',name:'زيادة اللايكات والتفاعل',desc:'لايكات وتعليقات ترفع وصول منشورك',options:['لايكات لمنشور','لايكات لمنشورات يومية','تعليقات حقيقية']},
+   {id:'c-ig-4',name:'مشاهدات الريلز والستوري',desc:'رفع مشاهدات الريلز والقصص بسرعة',options:['مشاهدات ريلز','مشاهدات ستوري','حفظ ومشاركة']}]},
+ {id:'s-tg',name:'خدمات تيليجرام',desc:'تضخيم قنواتك ومجموعاتك بأعضاء فاعلين',logo:null,icon:'tg',sections:[
+   {id:'c-tg-1',name:'إضافة أعضاء للمجموعات',desc:'أعضاء حقيقيون لمجموعتك أو قناتك',options:['مجموعة','قناة','كمية كبيرة','توزيع على عدة مجموعات']},
+   {id:'c-tg-2',name:'اشتراك تيليجرام بريميوم',desc:'تفعيل بريميوم لحسابك رسمياً',options:['شهر','3 أشهر','6 أشهر','سنة']},
+   {id:'c-tg-3',name:'مشاهدات وتفعيل القناة',desc:'مشاهدات للمنشورات وتفعيل التفاعل',options:['مشاهدات منشورات','تفعيل أعضاء','حضور مباشر']}]},
+ {id:'s-tk',name:'خدمات تيك توك',desc:'خوارزمية أسرع ونمو حقيقي لحسابك',logo:null,icon:'tk',sections:[
+   {id:'c-tk-1',name:'زيادة المتابعين',desc:'متابعون عرب وأجانب حسب طلبك',options:['متابعون عرب','متابعون أجانب','مزيج','مشكلة بالنقص']},
+   {id:'c-tk-2',name:'مشاهدات الفيديو',desc:'مشاهدات عالية السرعة لأي فيديو',options:['عدد محدد','حملات يومية','فيديو واحد محدد']},
+   {id:'c-tk-3',name:'لايكات وتعليقات',desc:'تفاعل يرفع الفيديو للصفحة الرئيسية',options:['لايكات','تعليقات مخصصة','إعجاب + مشاهدات']}]},
+ {id:'s-wa',name:'خدمات واتساب',desc:'أدوات احترافية للعمل والتسويق',logo:null,icon:'wa',sections:[
+   {id:'c-wa-1',name:'تهيئة واتساب بزنس',desc:'إعداد متجر وبروفايل احترافي كامل',options:['تهيئة جديدة','تطوير حساب قديم','ربط متجر','قائمة منتجات']},
+   {id:'c-wa-2',name:'أدوات إدارة المجموعات',desc:'حاضنات وإعداد مجموعات منظمة',options:['إعداد مجموعة','حماية من الحظر','أدوات إدارة']}]},
+ {id:'s-gl',name:'خدمات جوجل',desc:'حضورك على الخريطة يبدأ من هنا',logo:null,icon:'gl',sections:[
+   {id:'c-gl-1',name:'توثيق خرائط جوجل',desc:'إصدار وتثبيت خريطة لمشروعك',options:['إصدار جديد','استرجاع خريطة','مشكلة توثيق']},
+   {id:'c-gl-2',name:'إنشاء بريد جيميل',desc:'حسابات جوجل بإعداد آمن',options:['حساب عمل','حساب شخصي','عدة حسابات']}]},
+ {id:'s-bl',name:'خدمات أخرى',desc:'مواقع، تصاميم، وحلول رقمية مخصصة',logo:null,icon:'bl',sections:[
+   {id:'c-bl-1',name:'تصميم شعار وهوية',desc:'لوجو احترافي بهوية بصرية كاملة',options:['شعار فقط','هوية كاملة','تعديل شعار']},
+   {id:'c-bl-2',name:'إنشاء مواقع ومتاجر',desc:'صفحة هبوط أو متجر إلكتروني',options:['صفحة تعريفية','متجر','لوحة تحكم']},
+   {id:'c-bl-3',name:'استشارة خدمة غير موجودة',desc:'اكتب احتياجك ونحن ننفذه',options:['خدمات سوشيال أخرى','حلول خاصة','أخرى']},]}
+];
+
+/* ================= طبقة التخزين ================= */
+const FBJS='https://www.gstatic.com/firebasejs/10.12.2/';
+let MODE='local', db=null, FBAPP=null, AUTH=null, adminUser=null, RULES_LOCKED=false;
+const BSTREE='baso.tree',BSTREE_OLD="k=>'baso.'+ktree";
+/* المفتاح الصحيح للتخزين المحلي + ترحيل تلقائي من المفتاح الخاطئ القديم */
+function lsTreeKey(){
+  try{
+    if(localStorage.getItem(BSTREE))return BSTREE;
+    const old=localStorage.getItem(BSTREE_OLD);
+    if(old){localStorage.setItem(BSTREE,old);localStorage.removeItem(BSTREE_OLD)}
+  }catch(e){}
+  return BSTREE;
+}
+function localTree(){try{return JSON.parse(localStorage.getItem(lsTreeKey())||'{}')}catch(e){return{}}}
+function localSet(path,val){const t=localTree();const parts=path.split('/');let o=t;for(let i=0;i<parts.length-1;i++)o=o[parts[i]]=o[parts[i]]||{};o[parts[parts.length-1]]=val;try{localStorage.setItem(lsTreeKey(),JSON.stringify(t))}catch(e){console.warn('تعذر الحفظ في الذاكرة المحلية (ممتلئة) — البيانات على السيرفر بأمان')}}
+function localGet(path){const parts=path.split('/');let o=localTree();for(const p of parts){if(o==null)return null;o=o[p]}return o===undefined?null:o}
+
+async function initFirebase(){
+  const cfg=activeConfig();
+  if(!cfg||!cfg.apiKey||!cfg.projectId)return false;
+  const cands=[];
+  if(cfg.databaseURL)cands.push(cfg.databaseURL);
+  cands.push(`https://${cfg.projectId}-default-rtdb.firebaseio.com`,
+             `https://${cfg.projectId}-default-rtdb.europe-west1.firebasedatabase.app`);
+  try{
+    const [{initializeApp},{getDatabase,ref,get}]=await Promise.all([
+      import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js'),
+      import('https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js')
+    ]);
+    let i=1;let lastApp=null;
+    for(const url of [...new Set(cands)]){
+      try{
+        const app=initializeApp({...cfg,databaseURL:url},'baso'+i++);
+        lastApp=app;
+        const d=getDatabase(app);
+        const res=await Promise.race([
+          get(ref(d,'baso/services')).then(()=> 'ok').catch(err=>(String((err&&(err.code||err.message))||'').includes('permission-denied')?'locked':'fail')),
+          new Promise(r=>setTimeout(()=>r('timeout'),2500))
+        ]);
+        if(res==='ok'){db=d;FBAPP=app;RULES_LOCKED=false;MODE='firebase';setupAuth();console.info('✅ متصل بقاعدة البيانات:',url);return true}
+        if(res==='locked'){db=d;FBAPP=app;RULES_LOCKED=true;MODE='firebase';setupAuth();console.warn('⚠️ قاعدة البيانات موجودة لكن قواعد Rules تمنع الوصول — الصق القواعد المرسلة لك في تبويب Rules');return true}
+      }catch(e){console.warn('تعذر الاتصال عبر',url,e)}
+    }
+    if(lastApp){FBAPP=lastApp;setupAuth()}
+    console.warn('لم يتم إنشاء Realtime Database بعد — البيانات محلية مؤقتاً، ويمكن لمدير Firebase تسجيل الدخول بالبريد الآن');
+    db=null;return false;
+  }catch(e){console.warn('Firebase غير متاح، تم التحويل للوضع المحلي:',e);db=null;return false}
+}
+async function dbGet(path){
+  if(MODE==='firebase'&&db){const{ref,get}=await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js');const v=await get(ref(db,'baso/'+path));return v?v.val():null}
+  return localGet(path);
+}
+async function dbSet(path,val){
+  try{localSet(path,val)}catch(e){console.warn(e)}
+  if(MODE==='firebase'&&db){const{ref,set}=await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js');await set(ref(db,'baso/'+path),val)}
+}
+function visitsVal(v){if(v==null)return 0;if(typeof v==='object')return Number(v.visitors!=null?v.visitors.visitors:v.value)||0;return Number(v)||0}
+async function dbIncr(path,by){
+  /* العدّاد يُخزَّن رقماً نظيفاً عند stats/visitors حتى تسمح به قواعد Rules */
+  localSet(path,visitsVal(localGet(path))+by);
+  if(MODE==='firebase'&&db){
+    try{
+      const{ref,get,set}=await import(FBJS+'firebase-database.js');
+      const r=ref(db,'baso/'+path);
+      const now=visitsVal((await get(r)).val());
+      await set(r,now+by);
+      localSet(path,now+by);
+    }catch(e){console.warn('تعذر زيادة عدّاد الزيارات على السيرفر:',(e&&(e.code||e.message))||e)}
+  }
+}
+/* إصلاح شكل العدّاد المحفوظ بالتداخل — ينجح فقط إذا كان المدير مسجلاً */
+async function repairVisits(){
+  if(!(MODE==='firebase'&&db))return false;
+  try{
+    const{ref,get,set}=await import(FBJS+'firebase-database.js');
+    const r=ref(db,'baso/stats/visitors');
+    const v=(await get(r)).val(),n=visitsVal(v);
+    if(v&&typeof v==='object'){await set(r,n);localSet('stats/visitors',n);return true}
+  }catch(e){console.warn('تعذر إصلاح العداد:',(e&&(e.code||e.message))||e)}
+  return false;
+}
+async function dbDel(path){
+  const parts=path.split('/');const t=localTree();let o=t;
+  for(let i=0;i<parts.length-1;i++)o=o&&o[parts[i]];
+  if(o){delete o[parts[parts.length-1]];try{localStorage.setItem(lsTreeKey(),JSON.stringify(t))}catch(e){}}
+  if(MODE==='firebase'&&db){const{ref,remove}=await import(FBJS+'firebase-database.js');await remove(ref(db,'baso/'+path))}
+}
+async function setupAuth(){
+  try{
+    const {getAuth,onAuthStateChanged}=await import(FBJS+'firebase-auth.js');
+    AUTH=getAuth(FBAPP);
+    onAuthStateChanged(AUTH,u=>{
+      adminUser=u;
+      if($('#modal-admin').classList.contains('open')){
+        if(u){openAdminPanel()}
+        else{showGate((FBAPP&&db)?'fb':'pin')}
+      }
+    });
+  }catch(e){console.warn('تعذر تهيئة المصادقة:',e)}
+}
+function authErr(e){
+  const c=(e&&e.code)||'';
+  if(/invalid-credential|user-not-found|wrong-password|invalid-login-credentials/.test(c))return 'البريد أو كلمة المرور غير صحيحة';
+  if(/too-many-requests/.test(c))return 'محاولات كثيرة — انتظر قليلاً ثم جرّب';
+  if(/network-request-failed/.test(c))return 'تعذر الاتصال بالإنترنت';
+  if(/not-configured|operation-not-allowed/.test(c))return 'فعّل أولاً: Authentication › Sign-in method › Email/Password';
+  if(/invalid-email/.test(c))return 'صيغة البريد الإلكتروني غير صحيحة';
+  return 'خطأ: '+((e&&e.message)||e);
+}
+
+/* ================= الحالة العامة ================= */
+let S={services:[],orders:[],settings:{...DEFAULT_SETTINGS},visits:0};
+function normOrders(v){if(!v)return[];const a=Array.isArray(v)?v:Object.values(v);return a.filter(o=>o&&o.id&&o.ts).sort((x,y)=>y.ts-x.ts)}
+function mergeOrders(...lists){const seen=new Set(),out=[];for(const arr of lists)for(const o of (arr||[])){if(!o||!o.id||seen.has(o.id))continue;seen.add(o.id);out.push(o)}return out.sort((x,y)=>y.ts-x.ts)}
+let ORDERS_READ_BLOCKED=false;
+async function loadAll(){
+  S.services=(await dbGet('services').catch(()=>null))||JSON.parse(JSON.stringify(DEFAULT_SERVICES));
+  // الطلبات: ندمج ما على السيرفر مع ما حُفظ على هذا الجهاز، فلا يضيع أي طلب
+  ORDERS_READ_BLOCKED=false;let remote=null;
+  try{remote=await dbGet('orders')}catch(e){ORDERS_READ_BLOCKED=true;console.warn('تعذرت قراءة الطلبات من السيرفر:',(e&&(e.code||e.message))||e)}
+  S.orders=mergeOrders(normOrders(remote),normOrders(localGet('orders')));
+  S.settings=Object.assign({},DEFAULT_SETTINGS,(await dbGet('settings').catch(()=>null))||{});
+  S.visits=visitsVal(await dbGet('stats/visitors').catch(()=>null));
+  if(!Array.isArray(S.services)||!S.services.length)S.services=JSON.parse(JSON.stringify(DEFAULT_SERVICES));
+}
+async function countVisit(onServer){
+  const flag=onServer?'baso.counted.server':'baso.counted.local';
+  const first=!sessionStorage.getItem(flag);
+  if(first){
+    sessionStorage.setItem(flag,'1');
+    if(onServer){await dbIncr('stats/visitors',1)}
+    else{localSet('stats/visitors',visitsVal(localGet('stats/visitors'))+1)}
+  }
+  S.visits=visitsVal(await dbGet('stats/visitors').catch(()=>null))||S.visits;
+}
+function saveServices(){return dbSet('services',S.services)}
+function saveOrder(o){return dbSet('orders/'+o.id,o)}
+/* ملاحظة: وعد set() في فايربيز لا يُنجَز إلا بعد تأكيد السيرفر، فلا داعي لقراءة التحقق (الزبون المجهول لا يملك حق القراءة) */
+function removeOrder(id){return dbDel('orders/'+id)}
+function saveSettings(){return dbSet('settings',S.settings)}
+
+/* ================= واتساب ================= */
+function intlPhone(raw){
+  let d=String(raw||'').replace(/\D/g,'');
+  if(d.startsWith('00964'))d=d.slice(2);
+  else if(d.startsWith('964'))return d.slice(0,12);
+  else if(d.startsWith('0'))d='964'+d;
+  return d;
+}
+function waBase(){return '964'+String(S.settings.whatsapp||'7726446644').replace(/\D/g,'').replace(/^964/,'').replace(/^0/,'')}
+function orderText(o){
+  return `طلب جديد — BASO GROUB\n`+
+  `الخدمة: ${o.service}\nالقسم: ${o.section}\n`+
+  `الاسم: ${o.name}\nالرقم: ${o.phone}\nالعنوان: ${o.address}\n`+
+  `المشكلة: ${o.problem}`+(o.notes?`\nملاحظات: ${o.notes}`:'')+
+  `\nوقت الطلب: ${new Date(o.ts).toLocaleString('ar-IQ')}`;
+}
+function waLink(o){return `https://wa.me/${waBase()}?text=${encodeURIComponent(orderText(o))}`}
+
+/* ================= المقدمة والتحميل ================= */
+const INTRO_MS=2600;
+function runIntro(){
+  const start=performance.now();let cur=0;let done=false;
+  const fill=$('#intro-fill'),pct=$('#intro-pct');
+  function finish(){
+    if(done)return;done=true;
+    fill.style.width='100%';pct.textContent='100%';
+    setTimeout(()=>{$('#intro').classList.add('gone')},420);
+  }
+  (function tick(now){
+    if(done)return;
+    const p=Math.min(100,(now-start)/INTRO_MS*100);
+    cur=Math.max(cur,p);
+    fill.style.width=cur+'%';pct.textContent=Math.round(cur)+'%';
+    if(p>=100)finish();else requestAnimationFrame(tick);
+  })(start);
+  $('#intro-skip').addEventListener('click',finish);
+}
+
+/* ================= العرض العام ================= */
+function applyBrandLogo(){
+  const url=(S.settings.brandLogo||'').trim();
+  $$('[data-brand]').forEach(el=>{
+    if(!el.dataset.def)el.dataset.def=el.innerHTML;
+    if(url){el.innerHTML=`<img src="${url}" alt="شعار BASO GROUB">`;el.classList.add('has-img')}
+    else{el.innerHTML=el.dataset.def;el.classList.remove('has-img')}
+  });
+  let fav=document.querySelector('link#dyn-favicon');
+  if(url){
+    if(!fav){fav=document.createElement('link');fav.id='dyn-favicon';fav.rel='icon';document.head.appendChild(fav)}
+    fav.href=url;
+  }else if(fav)fav.remove();
+}
+function applyBranding(){
+  applyBrandLogo();
+  const wa=S.settings.whatsapp||'07726446644';
+  const ig=S.settings.instagram||'@muhaymin_baso';
+  $('#foot-wa-num').textContent=wa;
+  $('#foot-ig').querySelector('b').textContent=ig;
+  $('#foot-ig').href='https://instagram.com/'+ig.replace(/^@/,'');
+  const wl='https://wa.me/'+waBase();
+  $('#top-wa').href=wl;$('#hero-wa').href=wl;$('#foot-wa').href=wl;
+  $('#hero-members').textContent=fmtN(S.settings.members);
+  $('#hero-visits').textContent=fmtN(S.visits);
+  $('#year').textContent=new Date().getFullYear();
+}
+function setTab(name){
+  $$('.tab-item').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));
+}
+function showView(v){
+  $('#view-home').hidden=v!=='home';
+  $('#view-service').hidden=v!=='service';
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTab(v==='service'?'services':'home');
+}
+function svcLogoHTML(s,cls=''){
+  if(s.logo)return `<div class="svc-logo ${cls}"><img src="${s.logo}" alt=""></div>`;
+  return `<div class="svc-logo ${cls}">${ico(s.icon||'bl')}</div>`;
+}
+function secLogoHTML(c,s){
+  if(c.logo)return `<span class="sec-logo"><img src="${c.logo}" alt=""></span>`;
+  if(s&&s.logo)return `<span class="sec-logo from-svc"><img src="${s.logo}" alt=""></span>`;
+  return '';
+}
+function renderHome(){
+  $('#hero-services-count').textContent=S.services.length;
+  $('#services-grid').innerHTML=S.services.map(s=>`
+    <article class="svc-card" data-svc="${s.id}" tabindex="0">
+      ${svcLogoHTML(s)}
+      <h4>${esc(s.name)}</h4>
+      <p>${esc(s.desc||'')}</p>
+      <div class="svc-meta"><span>${(s.sections||[]).length} قسم</span><span class="go"><svg class="ic"><use href="#i-back"/></svg></span></div>
+    </article>`).join('');
+  $$('#services-grid .svc-card').forEach(c=>{
+    const open=()=>{renderService(c.dataset.svc);showView('service')};
+    c.addEventListener('click',open);
+    c.addEventListener('keydown',e=>{if(e.key==='Enter')open()});
+  });
+}
+let curCtx=null,LAST_ORDER=null;
+function renderService(id){
+  const s=S.services.find(x=>x.id===id);if(!s)return showView('home');
+  $('#service-body').innerHTML=`
+    <div class="svc-hero">${svcLogoHTML(s)}<div><h3>${esc(s.name)}</h3><p>${esc(s.desc||'')}</p></div></div>
+    <div class="sec-head" style="margin:26px 0 4px"><h3>الأقسام</h3><p>اختر القسم المناسب واضغط اطلب الآن لتعبئة بياناتك</p></div>
+    <div class="sections-grid">${(s.sections||[]).map(c=>`
+      <article class="sec-card">
+        <div class="sec-top">${secLogoHTML(c,s)}<h5>${esc(c.name)}</h5></div>
+        <p>${esc(c.desc||'')}</p>
+        ${(c.options&&c.options.length)?`<div class="chips">${c.options.slice(0,4).map(o=>`<span>${esc(o)}</span>`).join('')}</div>`:''}
+        <button class="btn btn-gold" data-sec="${c.id}">اطلب الآن</button>
+      </article>`).join('')||'<p class="empty">لا توجد أقسام بعد لهذه الخدمة</p>'}
+      </div>`;
+  $$('#service-body [data-sec]').forEach(b=>b.addEventListener('click',()=>openOrder(s.id,b.dataset.sec)));
+}
+
+/* ================= نافذة الطلب ================= */
+const PROB_FALLBACK=['طلب جديد','مشكلة في الحساب','تأخر في التنفيذ','مشكلة في الاشتراك','أخرى'];
+function openOrder(svcId,secId){
+  const s=S.services.find(x=>x.id===svcId);const c=(s.sections||[]).find(x=>x.id===secId);if(!c)return;
+  curCtx={svc:s,sec:c};
+  $('#om-title').textContent='طلب: '+c.name;
+  $('#om-ctx').innerHTML=`<b>${esc(s.name)}</b><b>${esc(c.name)}</b>`;
+  const probs=(c.options&&c.options.length)?c.options:PROB_FALLBACK;
+  $('#om-problem').innerHTML='<option value="" disabled selected>— اختر المشكلة المطلوبة —</option>'+probs.map(p=>`<option value="${esc(p)}">${esc(p)}</option>`).join('');
+  ['om-name','om-phone','om-address','om-notes'].forEach(i=>$('#'+i).value='');
+  $$('#om-form .field').forEach(f=>f.classList.remove('bad'));
+  $('#om-form').hidden=false;$('#om-done').hidden=true;
+  openModal('#modal-order');
+}
+function badField(id){const f=$('#'+id).closest('.field');if(f)f.classList.add('bad');$('#'+id).focus()}
+async function submitOrder(){
+  if(!curCtx)return;
+  const name=$('#om-name').value.trim(),phone=$('#om-phone').value.trim(),
+        address=$('#om-address').value.trim(),problem=$('#om-problem').value,notes=$('#om-notes').value.trim();
+  $$('#om-form .field').forEach(f=>f.classList.remove('bad'));
+  if(name.length<3)return badField('om-name'),toast('فضلاً اكتب اسمك الكامل');
+  if(!/^0?7\d{9}$/.test(phone.replace(/\s|-/g,'')))return badField('om-phone'),toast('رقم الهاتف يجب أن يكون مثل: 07xxxxxxxxx');
+  if(address.length<3)return badField('om-address'),toast('فضلاً اكتب عنوانك');
+  if(!problem)return badField('om-problem'),toast('فضلاً حدد المشكلة المطلوبة');
+  const btn=$('#om-submit');btn.disabled=true;
+  const o={id:uid(),ts:Date.now(),service:curCtx.svc.name,section:curCtx.sec.name,name,phone,address,problem,notes,status:'new'};
+  LAST_ORDER=o;
+  S.orders.unshift(o);
+  let onServer=false;
+  try{await saveOrder(o);onServer=(MODE==='firebase'&&!!db)}catch(e){onServer=false}
+  btn.disabled=false;
+  $('#om-form').hidden=true;$('#om-done').hidden=false;
+  $('#om-wa').href=waLink(o);
+  $('#om-note').hidden=!(MODE==='firebase'&&!onServer);
+  if(MODE==='firebase'&&!onServer)console.warn('الطلب حُفظ على جهاز الزبون فقط — نشر قواعد Rules مطلوب ليصل إلى لوحة التحكم');
+}
+function openModal(sel){$(sel).classList.add('open');$(sel).setAttribute('aria-hidden','false');document.body.classList.add('no-scroll')}
+function closeModal(sel){$(sel).classList.remove('open');$(sel).setAttribute('aria-hidden','true');document.body.classList.remove('no-scroll')}
+function bindOrderModal(){
+  const close=()=>closeModal('#modal-order');
+  $('#om-close').addEventListener('click',close);
+  $('#om-done-close').addEventListener('click',close);
+  $('#om-submit').addEventListener('click',submitOrder);
+  $('#om-copy').addEventListener('click',async()=>{
+    if(!LAST_ORDER)return toast('لا يوجد طلب بعد');
+    try{await navigator.clipboard.writeText(orderText(LAST_ORDER));toast('تم نسخ نص الطلب')}catch(e){toast('تعذر النسخ من متصفحك')}
+  });
+  $('#modal-order').addEventListener('click',e=>{if(e.target.id==='modal-order'&&!$('#om-form').hidden)close()});
+}
+
+/* ================= لوحة التحكم (#baso) ================= */
+const ADMIN_HASH='#baso';
+let orderFilter='new';
+function adminUnlocked(){return sessionStorage.getItem('baso_admin_ok')==='1'}
+function showGate(which){
+  $('#admin-gate').hidden=false;$('#admin-app').style.display='none';
+  $('#gate-fb').hidden=which!=='fb';$('#gate-pin').hidden=which!=='pin';
+  $('#gate-err').textContent='';$('#gate-err-local').textContent='';
+  const gfb=$('#gate-fallback');if(gfb)gfb.hidden=which!=='fb';
+  setTimeout(()=>{(which==='fb'?$('#fb-email'):$('#admin-pin')).focus()},150);
+}
+async function openAdminPanel(){
+  $('#admin-gate').hidden=true;$('#admin-app').style.display='';
+  const chip=$('#admin-user'),out=$('#am-logout');
+  if(adminUser){chip.textContent='👤 '+(adminUser.email||'مدير');out.hidden=false}
+  else{chip.textContent='وضع محلي (تجريبي)';out.hidden=true}
+  if(!$('#modal-admin').classList.contains('open'))openModal('#modal-admin');
+  await refreshAdminData();renderAdmin();subscribeOrders();
+}
+async function handleHash(){
+  if(location.hash===ADMIN_HASH){
+    if(FB_READY)await Promise.race([FB_READY,new Promise(r=>setTimeout(r,2000))]).catch(()=>{});
+    await refreshAdminData().catch(()=>{});
+    const cloud=(FBAPP&&db);
+    if(cloud&&!adminUser){showGate('fb');openModal('#modal-admin')}
+    else if(!cloud&&S.settings.pin&&!adminUnlocked()){showGate('pin');openModal('#modal-admin')}
+    else{openAdminPanel()}
+  }else if($('#modal-admin').classList.contains('open')){
+    closeModal('#modal-admin');
+    if(ORD_UNSUB){try{ORD_UNSUB()}catch(e){}ORD_UNSUB=null}
+  }
+}
+async function refreshAdminData(){await loadAll()}
+function unlockAdmin(){
+  const pin=String(S.settings.pin||'');
+  if(!pin){
+    $('#gate-err-local').textContent=(FBAPP&&db)?'لا يوجد رمز محلي — أكمل الدخول بالبريد الإلكتروني':'اربط فايربيز أو عرّف رمزاً للحماية';
+    $('#admin-pin').focus();return;
+  }
+  if($('#admin-pin').value===pin){
+    sessionStorage.setItem('baso_admin_ok','1');
+    $('#admin-gate').hidden=true;$('#admin-app').style.display='';
+    renderAdmin();toast('مرحباً بك في لوحة التحكم');
+  }else{$('#gate-err-local').textContent='رمز غير صحيح، حاول مجدداً';$('#admin-pin').focus()}
+}
+async function fbLogin(){
+  const em=$('#fb-email').value.trim().toLowerCase(),pw=$('#fb-pass').value;
+  if(!em||!pw){$('#gate-err').textContent='أدخل البريد وكلمة المرور أولاً';return}
+  const b=$('#fb-login');b.disabled=true;$('#gate-err').textContent='جارٍ التحقق…';
+  try{
+    const {getAuth,signInWithEmailAndPassword}=await import(FBJS+'firebase-auth.js');
+    await signInWithEmailAndPassword(getAuth(FBAPP),em,pw);
+    b.disabled=false;$('#gate-err').textContent='';$('#fb-pass').value='';
+    toast('أهلاً بك — تم تسجيل الدخول');openAdminPanel();
+  }catch(e){b.disabled=false;$('#gate-err').textContent=authErr(e)}
+}
+async function fbLogout(){
+  try{const{getAuth,signOut}=await import(FBJS+'firebase-auth.js');await signOut(getAuth(FBAPP))}catch(e){}
+  toast('تم تسجيل الخروج');
+  history.replaceState(null,'',location.pathname+location.search);
+}
+let ORD_UNSUB=null,ORD_LAST=0;
+async function subscribeOrders(){
+  if(ORD_UNSUB){try{ORD_UNSUB()}catch(e){}ORD_UNSUB=null}
+  if(MODE!=='firebase'||!db)return;
+  try{
+    const{ref,onValue,off}=await import(FBJS+'firebase-database.js');
+    const r=ref(db,'baso/orders');
+    onValue(r,snap=>{
+      const remote=snap&&snap.val();
+      ORDERS_READ_BLOCKED=false;
+      S.orders=mergeOrders(normOrders(remote),normOrders(localGet('orders')));
+      const n=S.orders.filter(o=>o.status==='new').length;
+      if(ORD_LAST&&n>ORD_LAST)toast('🔔 وصل طلب جديد — عدد الطلبات الجديدة '+n);
+      ORD_LAST=n;
+      if($('#modal-admin').classList.contains('open'))renderOrders();
+      const el=$('#tab-badge');if(el){el.textContent=n;el.hidden=!n}
+    },err=>{ORDERS_READ_BLOCKED=String((err&&(err.code||err.message))||'').includes('permission-denied');if($('#modal-admin').classList.contains('open'))renderOrders()});
+    ORD_UNSUB=()=>{try{off(r)}catch(e){}};
+  }catch(e){console.warn('تعذر الاشتراك المباشر بالطلبات، سيتم التحديث التلقائي كل 10 ثوانٍ:',e)}
+}
+function renderAdmin(){
+  const badge=$('#admin-mode-badge');
+  badge.textContent=(MODE==='firebase'&&db)?(RULES_LOCKED?'⚠️ متصل — Rules تمنع القراءة، انشر القواعد من تبويب الإعدادات':'● متصل بـ Firebase — الطلبات تصل مباشرة'):(!db&&FBAPP)?'● تعذّر الوصول لقاعدة البيانات — وضع محلي على هذا الجهاز':'● وضع تجريبي محلي (الجهاز الحالي)';
+  badge.className='conn-badge'+(MODE==='firebase'?' live':'');
+  renderOrders();renderSvcAdmin();renderStats();renderSettingsForm();
+}
+
+/* ---- الطلبات ---- */
+function renderOrders(){
+  const news=S.orders.filter(o=>o.status==='new').length;
+  $('#orders-new-count').textContent=news;
+  $('#orders-new-count').style.display=news?'':'none';
+  const tb=$('#tab-badge');if(tb){tb.textContent=news;tb.hidden=!news}
+  const warn=(MODE!=='firebase')
+    ?`<div class="rules-warn"><b>وضع محلي على هذا الجهاز فقط</b><span>الطلبات التي تراها هنا هي ما حُفظ في هذا المتصفح. لكي تصل طلبات الزبائن من هواتفهم إلى لوحتك، اربط مشروع Firebase وانشر قواعد Rules من تبويب «الإعدادات».</span></div>`
+    :(ORDERS_READ_BLOCKED
+      ?`<div class="rules-warn"><b>قراءة الطلبات مرفوضة من السيرفر</b><span>يظهر هنا طلبات هذا الجهاز فقط. الحل: سجّل الدخول بالبريد من تبويب «الإعدادات»، ثم انشر قواعد Rules الجاهزة للنسخ من نفس التبويب — قاعدة القراءة يجب أن تكون على مستوى orders.</span></div>`
+      :'');
+  $('#orders-tools').innerHTML=`
+    ${warn}
+    <div class="a-row" style="margin-bottom:12px">
+      <button class="btn btn-ghost btn-xs" id="orders-refresh">تحديث الآن</button>
+      <button class="filter-chip ${orderFilter==='new'?'on':''}" data-f="new">الجديدة (${S.orders.filter(o=>o.status==='new').length})</button>
+      <button class="filter-chip ${orderFilter==='done'?'on':''}" data-f="done">المكتملة</button>
+      <button class="filter-chip ${orderFilter==='all'?'on':''}" data-f="all">الكل (${S.orders.length})</button>
+    </div>`;
+  $$('#orders-tools .filter-chip').forEach(b=>b.addEventListener('click',()=>{orderFilter=b.dataset.f;renderOrders()}));
+  const rf=$('#orders-refresh');if(rf)rf.addEventListener('click',async()=>{await refreshAdminData();renderOrders();toast(MODE==='firebase'?'تم تحديث الطلبات من السيرفر ✓':'تم التحديث (وضع محلي)')});
+  const list=S.orders.filter(o=>orderFilter==='all'||o.status===orderFilter);
+  $('#orders-list').innerHTML=list.length?list.map(o=>`
+    <div class="a-card order-card ${o.status}">
+      <div class="order-head">
+        <b>${esc(o.name)} <span class="st-${o.status}">${o.status==='new'?'جديد':'مكتمل'}</span></b>
+        <span class="order-time">${new Date(o.ts).toLocaleString('ar-IQ')}</span>
+      </div>
+      <div class="order-info"><i>الخدمة:</i> ${esc(o.service)} — <i>القسم:</i> ${esc(o.section)}</div>
+      <div class="order-info"><i>المشكلة:</i> ${esc(o.problem)} ${o.notes?('— <i>ملاحظات:</i> '+esc(o.notes)):''}</div>
+      <div class="order-info"><i>الهاتف:</i> <span dir="ltr">${esc(o.phone)}</span> — <i>العنوان:</i> ${esc(o.address)}</div>
+      <div class="a-row" style="margin-top:10px">
+        <a class="btn btn-dark btn-xs" href="${waLink(o)}" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> رد على الزبون</a>
+        ${o.status==='new'?`<button class="ok-btn" data-act="done" data-id="${o.id}">تم التنفيذ ✓</button>`:`<button class="danger" data-act="undone" data-id="${o.id}">إعادة فتح</button>`}
+        <button class="danger" data-act="del" data-id="${o.id}"><svg class="ic"><use href="#i-trash"/></svg> حذف</button>
+      </div>
+    </div>`).join(''):'<p class="empty">لا توجد طلبات في هذا القسم حالياً</p>';
+  $$('#orders-list [data-act]').forEach(b=>b.addEventListener('click',async()=>{
+    const o=S.orders.find(x=>x.id===b.dataset.id);if(!o)return;
+    try{
+      if(b.dataset.act==='del'){if(!confirm('حذف هذا الطلب نهائياً؟'))return;S.orders=S.orders.filter(x=>x.id!==o.id);await removeOrder(o.id)}
+      else{o.status=b.dataset.act==='done'?'done':'new';await saveOrder(o)}
+      renderOrders();toast('تم التحديث');
+    }catch(e){toast('تعذر التعديل — تأكد من تسجيل دخول المدير')}
+  }));
+}
+
+/* ---- إدارة الخدمات والأقسام ---- */
+function fileToLogo(file,size,maxKB){
+  const SZ=size||256, MAXKB=maxKB||120;
+  return new Promise((res,rej)=>{
+    if(!file||!/^image\//.test(file.type||''))return rej(new Error('الملف ليس صورة'));
+    if(file.size>6*1024*1024)return rej(new Error('الصورة أكبر من 6 ميغابايت'));
+    const rd=new FileReader();
+    rd.onload=()=>{
+      const img=new Image();
+      img.onload=()=>{
+        const c=document.createElement('canvas');c.width=c.height=SZ;
+        const x=c.getContext('2d');
+        x.fillStyle='#FFFFFF';x.fillRect(0,0,SZ,SZ);
+        const k=Math.min(SZ/img.width,SZ/img.height);
+        x.drawImage(img,(SZ-img.width*k)/2,(SZ-img.height*k)/2,img.width*k,img.height*k);
+        let q=.85,out=c.toDataURL('image/jpeg',q);
+        for(let i=0;i<5&&out.length/1024>MAXKB;i++){q-=.13;if(q<.3)break;out=c.toDataURL('image/jpeg',q)}
+        if(out.length/1024>MAXKB*1.4)out=c.toDataURL('image/jpeg',.4);
+        res(out);
+      };
+      img.onerror=()=>rej(new Error('تعذر قراءة الصورة'));img.src=rd.result;
+    };
+    rd.onerror=()=>rej(new Error('تعذر فتح الملف'));rd.readAsDataURL(file);
+  });
+}
+function renderSvcAdmin(){
+  $('#admin-services-list').innerHTML=`
+  <div class="a-card">
+    <div class="a-title"><b>➕ إضافة خدمة جديدة</b><span class="a-sub">— الخدمات والأقسام</span></div>
+    <div class="a-row" style="margin-top:10px">
+      <input class="a-in" id="ns-name" placeholder="اسم الخدمة (مثال: خدمات سناب شات)">
+      <input class="a-in" id="ns-desc" placeholder="وصف قصير">
+      <select class="a-in" style="flex:0 0 auto" id="ns-icon">
+        <option value="ig">أيقونة انستقرام</option><option value="tg">أيقونة تيليجرام</option>
+        <option value="tk">أيقونة تيك توك</option><option value="wa">أيقونة واتساب</option>
+        <option value="gl">أيقونة جوجل</option><option value="bl">أيقونة عامّة</option>
+      </select>
+      <label class="file-btn">🖼 شعار (لوجو)<input type="file" id="ns-logo" accept="image/*"></label>
+      <img class="logo-prev" id="ns-logo-prev">
+      <button class="btn btn-gold btn-xs" id="ns-add">إضافة الخدمة</button>
+    </div>
+  </div>
+  ${S.services.map(s=>`
+  <div class="a-card" data-sid="${s.id}">
+    <div class="a-row">
+      <div class="a-title">${s.logo?`<img src="${s.logo}">`:`<span class="mono">${esc((s.name||'ب').trim().charAt(0))}</span>`}<b>${esc(s.name)}</b><span class="a-sub">${(s.sections||[]).length} قسم</span></div>
+      <span style="flex:1"></span>
+      <label class="file-btn">تغيير الشعار<input type="file" data-logo="${s.id}" accept="image/*"></label>
+      <button class="danger" data-del-svc="${s.id}"><svg class="ic"><use href="#i-trash"/></svg> حذف الخدمة</button>
+    </div>
+    <div class="a-row" style="margin-top:10px">
+      <input class="a-in" data-sname="${s.id}" value="${esc(s.name)}" placeholder="اسم الخدمة">
+      <input class="a-in" data-sdesc="${s.id}" value="${esc(s.desc||'')}" placeholder="الوصف">
+    </div>
+    <div class="a-secs">
+      ${(s.sections||[]).map(c=>`
+      <div class="a-secrow">
+        <label class="sec-logo-btn" title="لوجو/صورة القسم">${c.logo?`<img src="${c.logo}" alt="">`:'🖼'}<input type="file" accept="image/*" data-clogo="${c.id}"></label>
+        ${c.logo?`<button class="danger xs" data-clogo-del="${c.id}" data-in="${s.id}" title="إزالة صورة القسم">✕</button>`:''}
+        <input class="a-in" data-cname="${c.id}" value="${esc(c.name)}">
+        <input class="a-in" data-cdesc="${c.id}" value="${esc(c.desc||'')}" placeholder="وصف القسم">
+        <input class="a-in" data-copt="${c.id}" value="${esc((c.options||[]).join(' | '))}" placeholder="خيارات المشكلة مفصولة بـ |">
+        <button class="danger" data-del-sec="${c.id}" data-in="${s.id}">حذف</button>
+      </div>`).join('')||'<p class="a-sub" style="padding:6px">لا توجد أقسام — أضف قسماً بالأسفل</p>'}
+      <div class="a-row" style="margin-top:8px">
+        <span class="a-mini">➕ قسم جديد:</span>
+        <input class="a-in" data-newc-name="${s.id}" placeholder="اسم القسم">
+        <input class="a-in" data-newc-desc="${s.id}" placeholder="وصف القسم">
+        <input class="a-in" data-newc-opt="${s.id}" placeholder="خيارات المشكلة مفصولة بـ |">
+        <label class="sec-logo-btn new" title="صورة القسم الجديد (اختيارية)">🖼 صورة<input type="file" accept="image/*" data-newc-logo="${s.id}"></label>
+        <button class="btn btn-dark btn-xs" data-add-sec="${s.id}">إضافة القسم</button>
+      </div>
+    </div>
+    <div class="a-row" style="margin-top:8px">
+      <button class="btn btn-ghost btn-xs" data-save-svc="${s.id}">💾 حفظ تعديل هذه الخدمة</button>
+    </div>
+  </div>`).join('')}
+  <p class="a-sub" style="margin:6px 2px">💡 تعديل الاسم/الوصف لا يظهر إلا بعد ضغط «حفظ تعديل هذه الخدمة» لكل بطاقة.</p>`;
+  // إضافة خدمة
+  let nsLogo=null;
+  $('#ns-logo').addEventListener('change',async e=>{
+    const f=e.target.files[0];if(!f)return;
+    try{nsLogo=await fileToLogo(f,256,120)}catch(err){return toast('تعذر استخدام الصورة: '+((err&&err.message)||'خطأ غير معروف'))}
+    const p=$('#ns-logo-prev');p.src=nsLogo;p.style.display='block';
+  });
+  $('#ns-add').addEventListener('click',async()=>{
+    const name=$('#ns-name').value.trim();if(!name)return toast('اكتب اسم الخدمة أولاً');
+    S.services.push({id:uid(),name,desc:$('#ns-desc').value.trim(),logo:nsLogo,icon:$('#ns-icon').value,sections:[]});
+    if(!await guard(saveServices()))return;renderSvcAdmin();renderHome();toast('تمت إضافة الخدمة');
+  });
+  // تغيير شعار خدمة موجودة
+  $$('#admin-services-list [data-logo]').forEach(inp=>inp.addEventListener('change',async e=>{
+    const f=e.target.files[0];if(!f)return;
+    const s=S.services.find(x=>x.id===e.target.dataset.logo);
+    let img='';try{img=await fileToLogo(f,256,120)}catch(err){return toast('تعذر استخدام الصورة: '+((err&&err.message)||'خطأ غير معروف'))}
+    s.logo=img;if(!await guard(saveServices()))return;renderSvcAdmin();renderHome();toast('تم تحديث الشعار');
+  }));
+  // حذف خدمة
+  $$('#admin-services-list [data-del-svc]').forEach(b=>b.addEventListener('click',async()=>{
+    const s=S.services.find(x=>x.id===b.dataset.delSvc);
+    if(!confirm(`حذف خدمة «${s.name}» بكل أقسامها؟`))return;
+    S.services=S.services.filter(x=>x.id!==s.id);
+    if(!await guard(saveServices()))return;renderSvcAdmin();renderHome();toast('تم حذف الخدمة');
+  }));
+  // صورة/لوجو القسم
+  const secOf=(cid)=>{for(const sv of S.services){const c=(sv.sections||[]).find(x=>x.id===cid);if(c)return c}return null};
+  $$('#admin-services-list [data-clogo]').forEach(inp=>inp.addEventListener('change',async e=>{
+    const f=e.target.files[0];if(!f)return;
+    const c=secOf(e.target.dataset.clogo);if(!c)return;
+    let img='';try{img=await fileToLogo(f,180,60)}catch(err){return toast('تعذر استخدام الصورة: '+((err&&err.message)||'خطأ غير معروف'))}
+    c.logo=img;if(!await guard(saveServices()))return;renderSvcAdmin();toast('تم إضافة صورة القسم ✓');
+  }));
+  $$('#admin-services-list [data-clogo-del]').forEach(b=>b.addEventListener('click',async()=>{
+    const c=secOf(b.dataset.clogoDel);if(!c)return;
+    delete c.logo;if(!await guard(saveServices()))return;renderSvcAdmin();toast('أُزيلت صورة القسم');
+  }));
+  // حذف قسم
+  $$('#admin-services-list [data-del-sec]').forEach(b=>b.addEventListener('click',async()=>{
+    const s=S.services.find(x=>x.id===b.dataset.in);
+    const c=s.sections.find(x=>x.id===b.dataset.delSec);
+    if(!confirm(`حذف قسم «${c.name}»؟`))return;
+    s.sections=s.sections.filter(x=>x.id!==c.id);
+    if(!await guard(saveServices()))return;renderSvcAdmin();renderHome();toast('تم حذف القسم');
+  }));
+  // إضافة قسم
+  $$('#admin-services-list [data-add-sec]').forEach(b=>b.addEventListener('click',async()=>{
+    const s=S.services.find(x=>x.id===b.dataset.addSec);
+    const name=$(`[data-newc-name="${s.id}"]`).value.trim();
+    if(!name)return toast('اكتب اسم القسم');
+    const opt=$(`[data-newc-opt="${s.id}"]`).value.split('|').map(x=>x.trim()).filter(Boolean);
+    s.sections=s.sections||[];
+    const nf=$(`[data-newc-logo="${s.id}"]`).files[0];
+    let nimg=null;
+    if(nf){try{nimg=await fileToLogo(nf,180,60)}catch(err){return toast('تعذر استخدام صورة القسم: '+((err&&err.message)||'خطأ غير معروف'))}}
+    s.sections.push({id:uid(),name,desc:$(`[data-newc-desc="${s.id}"]`).value.trim(),options:opt,logo:nimg});
+    if(!await guard(saveServices()))return;renderSvcAdmin();renderHome();toast('تمت إضافة القسم');
+  }));
+  // حفظ تعديلات خدمة
+  $$('#admin-services-list [data-save-svc]').forEach(b=>b.addEventListener('click',async()=>{
+    const s=S.services.find(x=>x.id===b.dataset.saveSvc);
+    s.name=$(`[data-sname="${s.id}"]`).value.trim()||s.name;
+    s.desc=$(`[data-sdesc="${s.id}"]`).value.trim();
+    (s.sections||[]).forEach(c=>{
+      const n=$(`[data-cname="${c.id}"]`);if(n)c.name=n.value.trim()||c.name;
+      const d=$(`[data-cdesc="${c.id}"]`);if(d)c.desc=d.value.trim();
+      const o=$(`[data-copt="${c.id}"]`);if(o)c.options=o.value.split('|').map(x=>x.trim()).filter(Boolean);
+    });
+    if(!await guard(saveServices()))return;renderSvcAdmin();renderHome();toast('تم حفظ التعديلات ✓');
+  }));
+}
+
+/* ---- الزيارات والإحصاء ---- */
+async function renderStats(){
+  $('#stats-body').innerHTML=`
+    <div class="big-stat">
+      <div class="stat"><b id="st-visits">${fmtN(S.visits)}</b><span>إجمالي الزيارات</span></div>
+      <div class="stat"><b>${fmtN(S.orders.length)}</b><span>إجمالي الطلبات</span></div>
+      <div class="stat"><b>${fmtN(S.orders.filter(o=>o.status==='new').length)}</b><span>طلبات جديدة</span></div>
+      <div class="stat"><b>${fmtN(S.settings.members)}</b><span>عدد الأعضاء المعروض</span></div>
+    </div>
+    <div class="a-card">
+      <div class="a-title"><b>حالة التخزين</b></div>
+      <p class="a-sub" style="margin:6px 0;line-height:1.9">${MODE==='firebase'?(RULES_LOCKED?'🔒 قاعدة البيانات متصلة لكن قواعد Rules تمنع القراءة والكتابة: انشر القواعد في Firebase Console ‹ Realtime Database ‹ Rules لتفعيل الزيارات والطلبات على السيرفر.':'✅ متصل بـ Firebase Realtime Database — الزيارات والطلبات محفوظة على السيرفر ومشتركة بين جميع الأجهزة.'):'⚠️ وضع تجريبي محلي: البيانات محفوظة في هذا الجهاز فقط. اربط مشروعك من تبويب «الإعدادات» لتحصي زواراً حقيقيين.'}</p>
+      <div class="a-row">
+        <button class="btn btn-ghost btn-xs" id="st-refresh">تحديث الأرقام</button>
+        <button class="btn btn-ghost btn-xs" id="st-repair" ${MODE==='firebase'&&db?'':'hidden'}>إصلاح شكل العدّاد</button>
+        <button class="danger" id="st-reset">تصفير عدّاد الزيارات</button>
+      </div>
+    </div>`;
+  $('#st-refresh').addEventListener('click',async()=>{await loadAll();renderStats();applyBranding();toast('تم التحديث')});
+  const rp=$('#st-repair');
+  if(rp)rp.addEventListener('click',async()=>{
+    if(await guard(repairVisits())){await loadAll();renderStats();applyBranding();toast('تم إصلاح العدّاد ✓')}
+    else{await loadAll();renderStats();applyBranding();toast(ORDERS_READ_BLOCKED?'لا صلاحية — سجّل الدخول بالبريد أولاً':'العدّاد سليم حالياً')}
+  });
+  $('#st-reset').addEventListener('click',async()=>{
+    if(!confirm('تصفير عدّاد الزيارات؟'))return;
+    if(await guard(dbSet('stats/visitors',0))){await loadAll();renderStats();applyBranding();toast('تم التصفير')}
+  });
+}
+
+/* ---- الإعدادات ---- */
+function renderSettingsForm(){
+  const cur=activeConfig();
+  $('#settings-body').innerHTML=`
+    <div class="a-card">
+      <div class="a-title"><b>بيانات التواصل</b></div>
+      <div class="a-row" style="margin-top:10px">
+        <span class="a-mini">رقم الواتساب</span><input class="a-in" id="st-wa" value="${esc(S.settings.whatsapp)}" dir="ltr" placeholder="07xxxxxxxxx">
+        <span class="a-mini">يوزر انستقرام</span><input class="a-in" id="st-ig" value="${esc(S.settings.instagram)}" placeholder="@username">
+        <span class="a-mini">عدد الأعضاء المعروض</span><input class="a-in" id="st-members" type="number" value="${Number(S.settings.members)||8000}">
+        <span class="a-mini">رمز للوضع المحلي فقط (اللوحة متاحة بالبريد عند الاتصال بفايربيز)</span><input class="a-in" id="st-pin" value="${esc(S.settings.pin||'')}" placeholder="اختياري — للوضع المحلي فقط" dir="ltr">
+      </div>
+      <button class="btn btn-gold btn-xs" id="st-save" style="margin-top:12px">حفظ بيانات التواصل</button>
+    </div>
+    <div class="a-card">
+      <div class="a-title"><b>🖼 لوجو الموقع (الشعار)</b></div>
+      <p class="a-sub" style="margin:6px 0">اختر صورة من الاستوديو أو جهازك — تُقَصّ تلقائياً مربعة وتُحفظ مع إعدادات الموقع، فتظهر في الرأس وشاشة الترحيب والفوتر بدل حرف B.</p>
+      <div class="a-row">
+        <span class="brandlogo-prev ${S.settings.brandLogo?'has-img':''}" id="bl-prev">${S.settings.brandLogo?`<img src="${S.settings.brandLogo}" alt="">`:'B'}</span>
+        <label class="file-btn">اختيار شعار من الجهاز<input type="file" accept="image/*" id="bl-file"></label>
+        ${S.settings.brandLogo?`<button class="danger" id="bl-del" type="button">إزالة الشعار (حرف B)</button>`:''}
+      </div>
+      <button class="btn btn-gold btn-xs" id="bl-save" style="margin-top:10px">💾 حفظ الشعار</button>
+      <span class="a-sub" id="bl-status">${S.settings.brandLogo?'شعار مرفوع — اضغط حفظ ليظهر للجميع':'يُستخدم الحرف الذهبي B حالياً'}</span>
+    </div>
+    <div class="a-card">
+      <div class="a-title"><b>📋 قواعد Rules — حل مشكلة وصول الطلبات</b></div>
+      <p class="a-sub" style="margin:6px 0;line-height:1.9">إذا كان الزبائن يرسلون الطلب ولا يظهر عندك في تبويب الطلبات، فالسبب هو قواعد Rules القديمة (كانت القراءة مصرحاً بها داخل كل طلب فقط). انسخ القواعد الجاهزة وانشرها:</p>
+      <div class="a-row">
+        <button class="btn btn-gold btn-xs" id="ru-copy" type="button">نسخ قواعد Rules الجاهزة</button>
+        <a class="btn btn-ghost btn-xs" href="https://console.firebase.google.com/project/${esc(activeConfig().projectId||'baso-af795')}/database" target="_blank" rel="noopener">فتح Firebase Console</a>
+      </div>
+      <pre class="rules-box" id="ru-box" dir="ltr">${esc(RULES_JSON)}</pre>
+    </div>
+    <div class="a-card">
+      <div class="a-title"><b>ربط Firebase والدخول بالبريد</b></div>
+      <p class="a-sub" style="margin:6px 0;line-height:2">إعدادات مشروعك <b dir="ltr">baso-af795</b> مضمّنة في الصفحة ✅ — لتفعيل العمل الكامل:<br>
+      1) Firebase Console › <b>Authentication</b> › Get started › فعل طريقة <b>Email/Password</b><br>
+      2) من <b>Authentication › Users</b> اضغط Add User وأنشئ حساب مدير (بريد + كلمة مرور) — به تُفتح اللوحة الآن<br>
+      3) من <b>Realtime Database › Rules</b> الصق محتوى ملف firebase-rules.json واضغط Publish<br>
+      4) أعد تحميل الصفحة وادخل <b>#baso</b> وسجّل بالبريد — الشارة فوق تُظهر «متصل بـ Firebase»</p>
+      <textarea class="a-in" id="st-fb" rows="7" dir="ltr" style="width:100%;font-family:monospace;font-size:12px" placeholder='{"apiKey":"...","databaseURL":"...","projectId":"..."}'></textarea>
+      <div class="a-row" style="margin-top:10px">
+        <button class="btn btn-gold btn-xs" id="st-fb-save">حفظ وإعادة تحميل</button>
+        <button class="danger" id="st-fb-clear">فصل Firebase (وضع محلي)</button>
+        <span class="a-sub">الحالة الحالية: <b>${MODE==='firebase'?'متصل ✓':'محلي'}</b></span>
+      </div>
+    </div>`;
+  $('#st-fb').value=cur&&cur.apiKey?JSON.stringify(cur,null,1):'';
+  $('#st-save').addEventListener('click',async()=>{
+    S.settings.whatsapp=$('#st-wa').value.trim()||'07726446644';
+    S.settings.instagram=$('#st-ig').value.trim()||'@muhaymin_baso';
+    S.settings.members=Math.max(0,Number($('#st-members').value)||8000);
+    S.settings.pin=$('#st-pin').value.trim();
+    if(await guard(saveSettings())){applyBranding();toast('تم حفظ الإعدادات ✓')}
+  });
+  $('#st-fb-save').addEventListener('click',()=>{
+    try{
+      const j=JSON.parse($('#st-fb').value);
+      if(!j.apiKey||!j.databaseURL)throw new Error('apiKey و databaseURL مطلوبان');
+      localStorage.setItem(CONFIG_LS,JSON.stringify(j));
+      toast('تم الحفظ، جارٍ إعادة التحميل…');setTimeout(()=>location.reload(),800);
+    }catch(e){toast('JSON غير صحيح: '+e.message)}
+  });
+  $('#st-fb-clear').addEventListener('click',()=>{localStorage.removeItem(CONFIG_LS);toast('تم الفصل، إعادة التحميل…');setTimeout(()=>location.reload(),600)});
+  // لوجو الموقع
+  let blDraft=S.settings.brandLogo||'';
+  const blf=$('#bl-file');
+  if(blf)blf.addEventListener('change',async e=>{
+    const f=e.target.files[0];if(!f)return;
+    try{blDraft=await fileToLogo(f,256,120)}catch(err){return toast('تعذر استخدام الصورة: '+((err&&err.message)||'خطأ غير معروف'))}
+    const prev=$('#bl-prev');prev.classList.add('has-img');prev.innerHTML=`<img src="${blDraft}" alt="">`;
+    $('#bl-status').textContent='شعار جديد جاهز — اضغط «حفظ الشعار»';
+  });
+  const bld=$('#bl-del');
+  if(bld)bld.addEventListener('click',()=>{blDraft='';const prev=$('#bl-prev');prev.classList.remove('has-img');prev.textContent='B';$('#bl-status').textContent='سيُحذف الشعار بعد الحفظ'});
+  const bls=$('#bl-save');
+  if(bls)bls.addEventListener('click',async()=>{
+    S.settings.brandLogo=blDraft;
+    if(await guard(saveSettings())){applyBrandLogo();toast(blDraft?'تم حفظ شعار الموقع ✓':'تمت إزالة الشعار ✓');renderSettingsForm()}
+  });
+  const rc=$('#ru-copy');
+  if(rc)rc.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(RULES_JSON);toast('تم نسخ القواعد — الصقها في Rules ثم Publish')}
+    catch(e){const b=$('#ru-box');const rg=document.createRange();rg.selectNodeContents(b);const sel=getSelection();sel.removeAllRanges();sel.addRange(rg);toast('انسخ النص المظلل يدوياً (Ctrl+C)')}
+  });
+}
+
+/* ================= التشغيل ================= */
+function gotoServices(){
+  showView('home');setTab('services');
+  const el=$('#services-list');
+  requestAnimationFrame(()=>{if(el)el.scrollIntoView({behavior:'smooth',block:'start'})});
+}
+function quickOrder(){
+  const s=(!$('#view-service').hidden&&curCtx&&curCtx.svc)||S.services[0];
+  const c=s&&(s.sections||[])[0];
+  if(!c){toast('أضف قسماً للخدمة أولاً من لوحة التحكم');gotoServices();return}
+  openOrder(s.id,c.id);
+}
+function initTabs(){
+  $$('.tab-item').forEach(b=>b.addEventListener('click',()=>{
+    const k=b.dataset.tab;
+    if(k==='home'){showView('home');setTab('home')}
+    else if(k==='services'){gotoServices()}
+    else if(k==='order'){quickOrder()}
+    else if(k==='admin'){location.hash=ADMIN_HASH}
+  }));
+  /* محدّب التمرير: يضيء التبويب المناسب أثناء التصفح */
+  window.addEventListener('scroll',()=>{
+    if(!$('#view-service').hidden||document.querySelector('.modal-wrap.open')||document.body.classList.contains('no-scroll'))return;
+    const el=$('#services-list');
+    setTab(el&&el.getBoundingClientRect().top<96?'services':'home');
+  },{passive:true});
+}
+function initQuick(){
+  const preferred=['s-ig','s-tg','s-tk'];
+  $$('[data-quick]').forEach(b=>b.addEventListener('click',()=>{
+    const ic=b.dataset.quick;
+    const s=S.services.find(x=>x.icon===ic)||S.services.find(x=>(x.name||'').includes(b.dataset.name||''))||S.services.find(x=>x.id===preferred[0]);
+    if(!s)return toast('هذه الخدمة غير متوفرة حالياً');
+    renderService(s.id);showView('service');
+  }));
+}
+let FB_READY=null;
+async function boot(){
+  initTheme();
+  runIntro();
+  /* العرض الفوري بالبيانات المحلیة/الافتراضية، ثم المزامنة من السيرفر بعد الاتصال */
+  const fbJob=initFirebase().then(async()=>{
+    await loadAll();await countVisit(true);applyBranding();renderHome();
+    if($('#modal-admin').classList.contains('open')){renderAdmin();subscribeOrders()}
+    return true
+  }).catch(()=>false);
+  await loadAll();
+  await countVisit(MODE==='firebase');
+  applyBranding();renderHome();bindOrderModal();initTabs();initQuick();
+  FB_READY=fbJob;
+  $('#brand-home').addEventListener('click',e=>{e.preventDefault();showView('home')});
+  $('#btn-back').addEventListener('click',()=>showView('home'));
+  $('#am-close').addEventListener('click',()=>{if(location.hash===ADMIN_HASH)history.replaceState(null,'',location.pathname+location.search)});
+  $('#am-logout').addEventListener('click',fbLogout);
+  $('#admin-unlock').addEventListener('click',unlockAdmin);
+  $('#admin-pin').addEventListener('keydown',e=>{if(e.key==='Enter')unlockAdmin()});
+  $('#fb-login').addEventListener('click',fbLogin);
+  $('#fb-pass').addEventListener('keydown',e=>{if(e.key==='Enter')fbLogin()});
+  $('#gate-fallback').addEventListener('click',()=>{showGate('pin');toast('وضع محلي: تظهر هنا طلبات هذا الجهاز فقط')});
+  $$('.atab').forEach(t=>t.addEventListener('click',()=>{
+    $$('.atab').forEach(x=>x.classList.remove('active'));t.classList.add('active');
+    $$('.tab-pane').forEach(p=>p.classList.remove('active'));
+    $('#tab-'+t.dataset.tab).classList.add('active');
+  }));
+  window.addEventListener('hashchange',handleHash);
+  handleHash();
+  /* تحديث دوري احتياطي (يُستخدم فقط إذا لم يعمل الاشتراك المباشر) */
+  setInterval(async()=>{
+    const openAdmin=$('#modal-admin').classList.contains('open');
+    if(ORD_UNSUB)return;
+    if(openAdmin&&(!S.settings.pin||adminUnlocked())){
+      await refreshAdminData();
+      renderOrders();
+      const el=$('#st-visits');if(el){el.textContent=fmtN(S.visits);applyBranding()}
+    }
+  },12000);
+}
+boot();
+
+</script>
+</body>
+</html>
